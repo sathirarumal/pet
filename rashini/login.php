@@ -10,9 +10,11 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <h1>Rashini</h1>
+        <h1>Rashini/sra</h1>
+        <h3>pet interface</h3>
         <?php
           echo "rashini";
         ?>
+        <input type="submit">
     </body>
 </html>
