@@ -7,12 +7,38 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>login</title>
     </head>
     <body>
-        <h1>Rashini</h1>
-        <?php
-          echo "rashini";
-        ?>
+        <p>
+        <h1>Login</h1>
+        </p>
+        <table>
+            <tr>
+                <td>
+                    Username
+                </td>
+                <td>
+                    <input type="text" placeholder="username"
+                </td>
+               </tr>
+               
+               <tr>
+                   <td>
+                       Password
+                   </td>
+                   <td>
+                       <input type="password" placeholder="password">
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+               <button type="button"> login </button>
+                   </td>
+               </tr>
+                
+            
+        </table>
+            
     </body>
 </html>
