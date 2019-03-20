@@ -3,58 +3,37 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link rel="stylesheet" type="text/css" href="/pet/custom/form.css">
-        <link rel="stylesheet" type="text/css" href="/pet/custom/accordion.css">
-        <link rel="stylesheet" type="text/css" href="\pet\bootstrap-4.3.1\dist\css\bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="\pet\bootstrap-4.3.1\dist\css\bootstrap.css">
-    </head>
-    
-    
-    
+        <link href="/pet/css/custom/form.css" rel="stylesheet" />
+        <link href="/pet/css/custom/accordion.css" rel="stylesheet" />
+        <script src="/pet/js/custom/form.js"></script>
+    </head>   
     <body>
-    <div class="row  mb-30">
-    <div class="col-md-12">
+    <div class="bread-crumb-wrp with-mb">
+        <a>User</a>
+        <a>Edit Profile</a>
+    </div>
+    <div class="content">    
         <div class="contert-wrapper pb-15">
-
-            <div class="col-lg-12 header-edit">
-                <div class="row">
-                    <div class="col-lg-11"> 
-                        <div class="table-block cell-width-100">
-                            <div class="cell zero-width">
-                                <div class="img-wrp--50">
-                                    <?php //echo Common::showEmployeeThumbnailx50($emp_id); ?>
-                                </div>
-                            </div>
-                            <div class="cell pl-15">
-                                <h1 class="title">Family Details</h1>
-                                <h6 class="title mt-2"><?php //echo Common::getEmployeeName($emp_id); ?></h6>
-                            </div>
-                        </div>
-                               
-                    </div>
-                </div>
+            <div class="cell pb-30">
+                <h1 class="title">User Details</h1>
+                <h6 class="title mt-2"></h6>
             </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="emp-view-tab-content">
-
-                        <div id="familyDetailsFormDiv">
-                            
-                            <div class="family-wrp">
-                                <div class="family-dtl" >
-                                    <div class="row form-row">
-                                        
+                  <div class="row">
+                       <div class="col-md-12">
+                                    <div class="row form-row">    
                                         <div class="col-md-4 input-layout">
-                                            <h6 class="title">Place of Work</h6>
+                                            <h4 class="title">Fist Name</h4>
+                                            <input type="text" class="" id="fname">
                                         </div>
                                         
                                         <div class="col-md-4 input-layout">                                            
-                                            <h6 class="title">Place of Work</h6>
+                                            <h4 class="title">Last Name</h4>
+                                            <input type="text" class="" id="fname">
                                         </div>
 
                                         <div class="col-md-4 input-layout">
-                                            <h6 class="title">Place of Work</h6>
+                                            <h4 class="title">Gender</h4>
+                                            <input type="text" class="" id="fname">
                                         </div>
 
                                     </div>
@@ -62,15 +41,18 @@
                                     <div class="row form-row">
                                         
                                         <div class="col-md-4 input-layout">
-                                            <h6 class="title">Place of Work</h6>
+                                            <h4 class="title">Birth Date</h4>
+                                            <input type="text" class="" id="fname">
                                         </div>
                                         
                                         <div class="col-md-4 input-layout">
-                                            <h6 class="title">Place of Work</h6>                                          
+                                            <h4 class="title">Email Address</h4>
+                                            <input type="text" class="" id="fname">
                                         </div>
                                         
                                         <div class="col-md-4 input-layout">
-                                            <h6 class="title">Place of Work</h6>                                          
+                                            <h4 class="title">Mobile Phone No</h4>
+                                            <input type="text" class="" id="fname">
                                         </div>
                                         
                                     </div>
@@ -78,39 +60,27 @@
                                     <div class="row form-row">
                                         
                                         <div class="col-md-4 input-layout">
-                                            <h6 class="title">Place of Work</h6>
+                                            <h4 class="title">Country</h4>
+                                            <input type="text" class="" id="fname">
                                         </div>
                                         
                                         <div class="col-md-4 input-layout">
-                                            <h6 class="title">Place of Work</h6>
-                                        </div>
-                                        
-                                        <div class="col-md-4 input-layout">
-                                            <h6 class="title">Place of Work</h6>
+                                            <h4 class="title">Status</h4>
+                                            <input type="text" class="" id="fname">
                                         </div>
                                         
                                     </div>
-
-
                                 </div>
-                            </div>
-
+                             </div>
 
                             <div class="row">
                                 <div class="col-md-12">
                                     <button type="submit" class="bx-but bx-save" >Save</button>
-
                                 </div>
                             </div>
-
-                        </div>
 
                     </div>
                 </div>
             </div>
-
-        </div>
-    </div>
-    </div>
     </body>
 </html>
