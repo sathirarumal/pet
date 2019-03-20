@@ -22,6 +22,14 @@
         <script src="/pet/js/custom/common.js"></script>
         
         <!-- =====================================================================-->
+        <?php $root=$_SERVER['DOCUMENT_ROOT'];
+              //include("$root/pet/Models/GetData.php");
+              include("$root/pet/Controllers/Basic.php");
+              
+              session_start();
+              $_SESSION['usr_id']=1;
+              ?>
+        
     </head>
     <body>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -47,12 +55,11 @@
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Browny<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">kitty</a></li>
-                            <li><a href="#">lucky</a></li>
-                            <li><a href="#">tutu</a></li>
-                            <li><a href="#">tutu</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Profile</a></li>
+                         <?php $rows= GetData::getPets();
+                                ?>
+                                
+                            <li><a href="#"><?php echo $rows['pet_name'];?></a></li>
+                            <?php  ?>
                         </ul>
                         </li>    
                     <?php $x=0; ?>    
