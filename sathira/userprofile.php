@@ -75,10 +75,14 @@
             </div><!-- /.navbar-collapse -->
         </div> 
     </nav>
+       
         
-
-        
-        
+       <div class="container main-wrapper"> 
+                <?php include 'UserBasicDetails.php'; ?>  
+        </div> 
+        <div class="container main-wrapper">
+           <?php include 'I:/XAMPP/htdocs/pet/rashini/Registration.php'; ?>  
+        </div>
     </body>   
     
     

@@ -1,88 +1,101 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Registration Form</title>
-    </head>
+        <title></title>
+        <link href="/pet/css/custom/form.css" rel="stylesheet" />
+        <link href="/pet/css/custom/accordion.css" rel="stylesheet" />
+        <script src="/pet/js/custom/form.js"></script>
+    </head>   
     <body>
-        <p><h1> SIGN UP </h1><p>
-        <p><strong> Create my pet account, OR <a href="login.php">LOG IN >> </a></strong></p>
-        
-        <form>
-            <table>
-                
-                <tr>
-                    <td>
-                        Name
-                    </td>
-                    
-                    <td>
-                        <input type="text" placeholder="first name" >
-                    </td>
-                    <td>
-                        <input type="text" placeholder="last name">
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        Email Address
-                    </td>
-                    <td>
-                        <input type="mail" placeholder="email"
-                    </td>
-                      
-                </tr>
-                <tr>
-                    <td>
-                         Telephone Number
-                    </td>
-                    <td>
-                        <input type="phone" placeholder="telephone number">
-                    </td>
-                   
-                </tr>
-                <tr>
-                    <td>
-                        Gender
-                    </td>
-                    <td>
-                        <input type="radio" name="Gender" >Male
-                        <input type="radio" name="Gender" >Female
-                    </td>
-                </tr>
-               
-                <tr>
-                    <td>
-                        Username
-                    </td>
-                    <td>
-                        <input type="text" placeholder="username" >
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Password
-                    </td>
-                    <td>
-                        <input type="password" placeholder="password" >
-                     
-                    </td>
-                </tr>
+    <div class="bread-crumb-wrp with-mb">
+        <a>User</a>
+        <a>Registration</a>
+    </div>
+    <div class="content">    
+        <div class="contert-wrapper pb-15">
+            <div class="cell pb-30">
+                <h1 class="title">Registration</h1>
+                <h6 class="title mt-2"></h6>
+            </div>
+                  <div class="row">
+                       <div class="col-md-12">
+                                    <div class="row form-row">    
+                                        <div class="col-md-4 input-layout">
+                                            <h4 class="title">Fist Name</h4>
+                                            <input type="text" class="" id="fname">
+                                        </div>
+                                        
+                                        <div class="col-md-4 input-layout">                                            
+                                            <h4 class="title">Last Name</h4>
+                                            <input type="text" class="" id="fname">
+                                        </div>
 
-                
-                <tr>
-                    <td>
-                         <a href="payment.php"> Next </a>
-                    </td>
-                </tr>
-            </table>
-        </form>
-        
+                                        <div class="col-md-4 input-layout">
+                                            <h4 class="title">Gender</h4>
+                                            <input type="text" class="" id="fname">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row form-row">
+                                        
+                                        <div class="col-md-4 input-layout">
+                                            <h4 class="title">Birth Date</h4>
+                                            <input type="text" class="" id="fname">
+                                        </div>
+                                        
+                                        <div class="col-md-4 input-layout">
+                                            <h4 class="title">Email Address</h4>
+                                            <input type="text" class="" id="fname">
+                                        </div>
+                                        
+                                        <div class="col-md-4 input-layout">
+                                            <h4 class="title">Mobile Phone No</h4>
+                                            <input type="text" class="" id="fname">
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <div class="row form-row">
+                                        
+                                        <div class="col-md-4 input-layout">
+                                            <h4 class="title">Country</h4>
+                                            <input type="text" class="" id="fname">
+                                        </div>
+                                        
+                                        <div class="col-md-4 input-layout">
+                                            <h4 class="title">Status</h4>
+                                            <input type="text" class="" id="fname">
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="divider"></div>
+                                    <div class="row form-row">
+                                        
+                                        <div class="col-md-4 input-layout">
+                                            <h4 class="title">Country</h4>
+                                            <input type="text" class="" id="fname">
+                                        </div>
+                                        
+                                        <div class="col-md-4 input-layout">
+                                            <h4 class="title">Status</h4>
+                                            <input type="text" class="" id="fname">
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                             </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" class="bx-but bx-save" >Save</button>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
     </body>
 </html>
