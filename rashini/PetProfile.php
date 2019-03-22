@@ -39,7 +39,7 @@
             </div>
            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="/pet/sathira/main.php" >Home</a></li>
+                    <li><a href="main.php" >Home</a></li>
                     <li><a href="#">Gallery</a></li>
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pet<b class="caret"></b></a>
@@ -47,7 +47,9 @@
                             <li><a href="#">Foods</a></li>
                             <li><a href="#">Vaccines</a></li>
                             <li><a href="#">medicines</a></li>
-                            <li><a href="#">Daily Activities</a></li>                            
+                            <li><a href="#">Daily Activities</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Profile</a></li>
                         </ul>
                         </li>
                     <li class="dropdown">
@@ -63,8 +65,6 @@
                                 
                             <li onclick="setPetProfile(<?php echo $rows['pet_id']?>);"><a href="#"><?php echo $rows['pet_name'];?></a></li>
                                 <?php } ?>
-                            <li class="divider"></li>
-                            <li><a href="/pet/rashini/PetProfile.php">Profile</a></li>
                         </ul>
                         </li>    
                     <?php $x=0; ?>    
@@ -76,7 +76,7 @@
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="color:#1C88B6" ><span class="glyphicon glyphicon-user "></span><b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/pet/rashini/UserProfile.php"> My Profile</a></li>
+                            <li><a href="#"> Edit Profile</a></li>
                             <li><a href="#">Settings</a></li>
                             <li class="divider"></li>
                             <li><a href="#">Log out</a></li>
@@ -88,6 +88,9 @@
         </div> 
     </nav>
    
+        <div class="popup1">
+            <?php include 'petDetails.php'; ?>            
+        </div>
 
         
         
@@ -121,3 +124,4 @@
  }
     
 </script>
+

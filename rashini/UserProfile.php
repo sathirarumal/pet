@@ -88,6 +88,9 @@
         </div> 
     </nav>
    
+        <div class="popup1">
+            <?php include 'userDetails.php'; ?>            
+        </div>
 
         
         
