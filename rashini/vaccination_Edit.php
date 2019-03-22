@@ -19,6 +19,7 @@
                 <h1 class="title">Vaccination details</h1>
                 <h6 class="title mt-2"></h6>
             </div>
+            <form action="" method="post">
                   <div class="row">
                        <div class="col-md-12">
                                     <div class="row form-row">    
@@ -43,6 +44,13 @@
                                             <input type="text" class="" id="vperiod">
                                         </div>
                                     </div>
+                           
+                           <div class="row form-row"> 
+                                        <div class="col-md-4 input-layout">
+                                            <h4 class="title">Vaccination Type</h4>
+                                            <input type="text" class="" id="vtype">
+                                        </div>
+                                    </div>
                              </div>
 
                             <div class="row">
@@ -52,7 +60,23 @@
                             </div>
 
                     </div>
+         </form>
                 </div>
             </div>
     </body>
 </html>
+<?php 
+    if(isset($_POST['save'])){
+        $name=$_POST['vname'];
+        $date=$_POST['date'];
+        $period=$_POST['vperiod'];
+        $ptype=$_POST['vtype'];
+        Insert_Details::Insert_Vaccine($petid, $name, $date, $period, $ptype, $status);
+    }
+
+
+
+
+
+
+?>
