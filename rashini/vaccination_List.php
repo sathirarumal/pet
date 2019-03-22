@@ -23,7 +23,7 @@
                    </div>
                    
                     <div class="col-md-2">
-               <h5 class="details pl-30 txt-dark-light ">Date :</h5>
+               <h5 class="details pl-30 txt-dark-light ">Date : </h5>
                    </div>
                    
                     <div class="col-md-2">
