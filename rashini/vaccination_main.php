@@ -88,20 +88,13 @@
         </div> 
     </nav>
       
-        <div class="popup1">
-           <?php include 'vaccination_Edit.php'; ?>  
-        </div>
-        
-        <div class="popup1">
-           <?php include 'user_profile.php'; ?>  
-        </div>
-        
-        <div class="popup1">
-           <?php include 'editUserDetails.php'; ?>  
-        </div>
         
         <div class="popup1">
            <?php include 'vaccination_List.php'; ?>  
+        </div>
+        
+        <div class="popup1">
+           <?php include 'vaccination_Edit.php'; ?>  
         </div>
 
        
@@ -136,3 +129,4 @@
  }
     
 </script>
+
