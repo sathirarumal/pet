@@ -33,5 +33,30 @@ class Basic{
         
     }
     
+    public static function getTypeByID($Id)
+    {
+        $dbs = Connection::connect();  
+
+        $typeid=$Id;
+        
+        $sql = "select * from set_type where pet_type_id = '$typeid'";
+        $result = mysqli_query($dbs,$sql);
+        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+        
+        return $row['pet_type_name'];
+    }        
+    
+    public static function getBreedByID($Id)
+    {
+        $dbs = Connection::connect();  
+
+        $breedid=$Id;
+        
+        $sql = "select * from set_breed where pet_breed_id = '$breedid'";
+        $result = mysqli_query($dbs,$sql);
+        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+        return $row['pet_breed_name'];
+    }
     
 }

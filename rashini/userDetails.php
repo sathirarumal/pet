@@ -1,22 +1,27 @@
-<div id="user-profile-2" class="user-profile">
-		<div class="tabbable">
-			<ul class="nav nav-tabs padding-18">
-				
-		
-				<li>
-					<a data-toggle="tab" href="#pictures">
-						<i class="pink ace-icon fa fa-picture-o bigger-120"></i>
-						Pictures
-					</a>
-				</li>
-			</ul>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link href="/pet/css/custom/form.css" rel="stylesheet" />
+        <link href="/pet/css/custom/accordion.css" rel="stylesheet" />
+        <script src="/pet/js/custom/form.js"></script>
+    </head>   
+    <body>
+<div class="container main-wrapper">    
+    <div class="bread-crumb-wrp with-mb">
+        <a>Your</a>
+        <a>Profile</a>
+    </div>
+    <div class="content">    
+        <div class="contert-wrapper pb-15">
 
 			<div class="tab-content no-border padding-24">
 				<div id="home" class="tab-pane in active">
 					<div class="row">
+                                            <?php $row = GetData::getUsrDetails(); ?>
 						<div class="col-xs-12 col-sm-3 center">
 							<span class="profile-picture">
-								<img class="editable img-responsive" alt=" Avatar" id="avatar2" src="http://bootdey.com/img/Content/avatar/avatar6.png">
+							<?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['usr_propic'] ).'" class="editable img-responsive" alt="Cinque Terre">' ?>
 							</span>
 
 							<div class="space space-4"></div>
@@ -24,76 +29,37 @@
 						</div>
 
 						<div class="col-xs-12 col-sm-9">
-							<h4 class="blue">
-								<span class="middle">John Doe</span>
-							</h4>
+							<h2 class="details bg-blue">
+								<span class="middle"><?php echo $row['usr_fname']." ".$row['usr_lname'];?></span>
+							</h2>
 
-							<div class="profile-user-info">
-								<div class="profile-info-row">
+                                                                <div class="row pb-10">
                                                                     <div class="col-md-4 input-layout">
-									<div class="profile-info-name"> First Name </div>
+									<h4 class="details"> Birthday : <?php echo $row['usr_b_day'];?> </h4>
                                                                     </div>
                                                                     
                                                                     <div class="col-md-4 input-layout">
-
-									<div class="profile-info-value">
-                                                                            <i class="fa fa-map-marker light-orange bigger-110"></i>
-
-										<span>alexdoe</span>
-									</div>
-								</div>
+									<h4 class="details"> Gender : <?php echo $row['usr_gender'];?> </h4>
+                                                                    </div>
+                                                                    
                                                                 </div>
-
-								<div class="profile-info-row">
-									<div class="profile-info-name"> Last Name </div>
-
-									<div class="profile-info-value">
-										<i class="fa fa-map-marker light-orange bigger-110"></i>
-										<span>Netherlands</span>
-										<span>Amsterdam</span>
-									</div>
-								</div>
-
-								<div class="profile-info-row">
-									<div class="profile-info-name"> Birthday </div>
-
-									<div class="profile-info-value">
-										<span>38</span>
-									</div>
-								</div>
-
-								<div class="profile-info-row">
-									<div class="profile-info-name"> Gender </div>
-
-									<div class="profile-info-value">
-										<span>2010/06/20</span>
-									</div>
-								</div>
-
-								<div class="profile-info-row">
-									<div class="profile-info-name"> Email </div>
-
-									<div class="profile-info-value">
-										<span>3 hours ago</span>
-									</div>
-								</div>
-                                                            
-                                                            <div class="profile-info-row">
-									<div class="profile-info-name"> Telephone Number </div>
-
-									<div class="profile-info-value">
-										<span>3 hours ago</span>
-									</div>
-								</div>
-                                                            
-                                                            <div class="profile-info-row">
-									<div class="profile-info-name"> Country </div>
-
-									<div class="profile-info-value">
-										<span>3 hours ago</span>
-									</div>
-								</div>
-							</div>
+                                                                <div class="row pb-10">
+                                                                    <div class="col-md-4 input-layout">
+									<h4 class="details"> Country : <?php echo $row['usr_country'];?> </h4>
+                                                                    </div>
+                                                                    
+                                                                    <div class="col-md-4 input-layout">
+									<h4 class="details"> Telephone Number : <?php echo $row['usr_telno'];?>  </h4>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                                <div class="row pb-10">
+                                                                    <div class="col-md-4 input-layout">
+									<h4 class="details"> Email : <?php echo $row['usr_email'];?></h4>
+                                                                    </div>                                                                    
+                                                                </div> 
+                                                                
+                                                        </div>
 
 							
 						</div>
@@ -109,7 +75,13 @@
                                                         </div>
 						
 					
-				</div>
-			</div>
-		</div>
-	</div>
+                                                </div>
+                                        </div>
+                                   </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
+    
