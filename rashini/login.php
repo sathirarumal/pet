@@ -25,52 +25,47 @@
         <script src="/pet/js/custom/form.js"></script>
         
         <!-- =====================================================================-->
+        <?php $root=$_SERVER['DOCUMENT_ROOT'];
+              //include("$root/pet/Models/GetData.php");
+              include("$root/pet/Controllers/Basic.php");
+              session_start();
+              ?>
     </head>
     <body>
-     <div class="container main-wrapper">
-		<div class="card">
-			<div class="card-header">
-				<h3>Sign In</h3>
+    <div class="wrapper fadeInDown">
+     <div id="formContent">
+    <!-- Tabs Titles -->
 
-			</div>
-			<div class="card-body">
-				<form>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class=""></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="username">
-						
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<input type="password" class="form-control" placeholder="password">
-					</div>
-					<div class="row align-items-center remember">
-						<input type="checkbox">Remember Me
-					</div>
-					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn">
-					</div>
-				</form>
-			</div>
-			<div class="card-footer">
-				<div class="d-flex justify-content-center links">
-					Don't have an account?<a href="#">Sign Up</a>
-				</div>
-				<div class="d-flex justify-content-center">
-					<a href="#">Forgot your password?</a>
-				</div>
-			</div>
-		</div>
-	</div>
-        
-        
-        
-        
-        
-        
+    <!-- Icon -->
+    <div class="fadeIn first">
+        <h3 class="details bg-blue">Sign Up</h3>
+    </div>
+
+    <!-- Login Form -->
+    <form action="" method="post">
+      <input type="text" id="login" class="fadeIn second" name="username" placeholder="login">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+      <input type="submit" class="fadeIn fourth" name="save" value="Log In">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+      or
+      <a class="underlineHover red ml-15" href="/pet/rashini/register.php">REGISTER</a>
+    </div>
+
+    </div>
+    </div>
     </body>
 </html>
+
+<?php 
+    if(isset($_POST['save'])){
+
+        $username=$_POST['username'];
+        $password=$_POST['password'];
+        Basic::login($username,$password);
+    }
+
+?>

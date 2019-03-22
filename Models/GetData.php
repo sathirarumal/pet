@@ -10,12 +10,10 @@
 class GetData {
 
     
-    public static function getUsrprofile(){
-      $dbs = Connection::connect();
-      $username = $_POST['username'];
-      $password = $_POST['password'];   
+    public static function getUsrprofile($username,$password){
+      $dbs = Connection::connect();     
         
-      $sql = "SELECT * FROM user_profile WHERE usr_username = '$myusername' and usr_password = '$mypassword'";
+      $sql = "SELECT * FROM user_profile WHERE usr_username = '$username' and usr_password = '$password'";
       $result = mysqli_query($dbs,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       
@@ -63,6 +61,17 @@ class GetData {
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       
       return $row;
+     }
+     
+     public static function getUsrType(){
+      $dbs = Connection::connect();  
+      $userId = $_SESSION['usr_id'];
+      
+      $sql = "SELECT * FROM user_profile WHERE usr_id = '$userId'";
+      $result = mysqli_query($dbs,$sql);
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+      
+      return $row['usr_type'];
      }
      
      public static function getPetfoods(){

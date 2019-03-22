@@ -45,7 +45,7 @@
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pet<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Foods</a></li>
-                            <li><a href="#">Vaccines</a></li>
+                            <li><a href="/pet/rashini/vaccination_main.php">Vaccines</a></li>
                             <li><a href="#">medicines</a></li>
                             <li><a href="#">Daily Activities</a></li>                            
                         </ul>
@@ -58,7 +58,7 @@
                           </a>
                         <ul class="dropdown-menu" >
                          <?php $results= GetData::getPets();
-                                while($rows = mysqli_fetch_array($results)){
+                               while($rows = mysqli_fetch_array($results)){
                                 ?>
                                 
                             <li onclick="setPetProfile(<?php echo $rows['pet_id']?>);"><a href="#"><?php echo $rows['pet_name'];?></a></li>
@@ -67,7 +67,7 @@
                             <li><a href="/pet/rashini/PetProfile.php">Profile</a></li>
                         </ul>
                         </li>    
-                    <?php $x=0; ?>    
+                    <?php $x=GetData::getUsrType();?>    
                     <?php if($x == 1) { ?>    
                     <li><a href="#">Admin</a></li>
                     <?php } ?>

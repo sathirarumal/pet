@@ -9,25 +9,30 @@
     </head>   
     <body>
        
-    <div class="bread-crumb-wrp with-mb">
+    <div class="bread-crumb-wrp pl-30 with-mb">
         <a>Pet</a>
         <a>vaccination</a>
     </div>
-     <?php for($i=0;$i<5;$i++) {?>
+     <?php $result = GetData::getPetVaccin();
+     foreach($result as $row) {?>
 
         <div class="card-content-wrp pb-10">
            <div class="tab-box"> 
                <div class="row">
                    <div class="col-md-2">
-               <h5 class="details pl-30 txt-dark-light ">Vaccine Name :</h5>
+               <h5 class="details pl-30 txt-dark-light ">Vaccine Name : <?php echo $row['pet_vac_name'] ;?></h5>
                    </div>
                    
                     <div class="col-md-2">
-               <h5 class="details pl-30 txt-dark-light ">Date : </h5>
+               <h5 class="details pl-30 txt-dark-light ">Date : <?php echo $row['pet_vac_date'] ;?> </h5>
                    </div>
                    
                     <div class="col-md-2">
-               <h5 class="details pl-30 txt-dark-light ">Vaccination Period :</h5>
+               <h5 class="details pl-30 txt-dark-light ">Vaccination Period : <?php echo $row['pet_vac_period'] ;?></h5>
+                   </div>
+                   
+                   <div class="col-md-2">
+               <h5 class="details pl-30 txt-dark-light ">Vaccination Period Type : <?php echo $row['ref_period_type'] ;?></h5>
                    </div>
                 
                </div>
