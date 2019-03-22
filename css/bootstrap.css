@@ -1128,9 +1128,9 @@ img {
 .img-rounded {
   border-radius: 6px;
 }
-.img-thumbnail {
+.img-thumbnails {
   display: inline-block;
-  max-width: 100%;
+  max-width: 10%;
   height: auto;
   padding: 4px;
   line-height: 1.42857143;

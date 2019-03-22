@@ -53,13 +53,18 @@
                         </ul>
                         </li>
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Browny<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                         <?php $rows= GetData::getPets();
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle"><?php $row=GetData::getPetsWithThambnail();
+                           //echo $row['pet_name']; 
+                           echo '<div class="img-wrp--35"><img src="data:image/jpeg;base64,'.base64_encode( $row['pet_pic'] ).'" class="" alt="Cinque Terre"></div>';
+                           ?>
+                          </a>
+                        <ul class="dropdown-menu" >
+                         <?php $results= GetData::getPets();
+                                while($rows = mysqli_fetch_array($results)){
                                 ?>
                                 
-                            <li><a href="#"><?php echo $rows['pet_name'];?></a></li>
-                            <?php  ?>
+                            <li onclick="setPetProfile(<?php echo $rows['pet_id']?>);"><a href="#"><?php echo $rows['pet_name'];?></a></li>
+                                <?php } ?>
                         </ul>
                         </li>    
                     <?php $x=0; ?>    
@@ -91,3 +96,28 @@
     
     
 </html>
+
+<script>
+ 
+ function setPetProfile(id){
+     //console.log(id);
+     var extraData = "&petId=" + id;
+     jQuery.ajax({
+        type: "POST",
+        url: 'setPetProfile.php',
+        dataType: 'json',
+        data: extraData,
+
+        success: function (obj, textstatus) {
+                  if( !('error' in obj) ) {
+                      yourVariable = obj.result;
+                  }
+                  else {
+                      console.log(obj.error);
+                  }
+            }
+        });
+        location.reload();
+ }
+    
+</script>

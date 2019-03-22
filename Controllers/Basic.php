@@ -13,7 +13,10 @@ class Basic{
     
     public static function setPetprofile($petId)
     {
-        $_SESSION['pet_id']=$petId;
+        $petid=(int)$petId;
+        $_SESSION['pet_id']=$petid;
+        $row=GetData::getPetProfile($petid);
+        return $row;
     }
     
     public static function login(){
