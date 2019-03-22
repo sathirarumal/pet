@@ -75,14 +75,24 @@
             </div><!-- /.navbar-collapse -->
         </div> 
     </nav>
-       
-        
-       <div class="container main-wrapper"> 
-                <?php include 'UserBasicDetails.php'; ?>  
-        </div> 
-        <div class="container main-wrapper">
-           <?php include 'C:/XAMPP/htdocs/pet/rashini/Registration.php'; ?>  
+
+        <div class="popup">
+           <?php include 'vaccination.php'; ?>  
         </div>
+        
+        <div class="popup">
+           <?php include 'userDetails.php'; ?>  
+        </div>
+        
+        <div class="popup">
+           <?php include 'editUserDetails.php'; ?>  
+        </div>
+        
+        <div class="popup">
+           <?php include 'vaccinationMain.php'; ?>  
+        </div>
+
+        
     </body>   
     
     
