@@ -18,7 +18,8 @@ class Insert_Details {
       try{
           $sql = "INSERT INTO pet_vaccine (ref_pet_id, pet_vac_name, pet_vac_date, pet_vac_period, ref_period_type, pet_vac_status)"
              . "values ('$petid' ,'$name' , '$date' , '$period' , '$ptype' , '$status')";
-      $dbs->query($sql);
+          $dbs->query($sql);
+      
       } catch (Exception $ex) {
           echo $ex;
       }    

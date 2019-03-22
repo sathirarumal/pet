@@ -19,16 +19,16 @@ class Basic{
         return $row;
     }
     
-    public static function login(){
-        $data=GetData::getUsrprofile();
+    public static function login($username,$password){
+        $data=GetData::getUsrprofile($username,$password);
         if($data != null)
         {   
             $_SESSION['usr_id']=$data['usr_id'];
-            header('Location: main.php');
+            header('Location: /pet/sathira/main.php');
             
         }
         else{
-            
+            return 'error'; 
         }
         
     }

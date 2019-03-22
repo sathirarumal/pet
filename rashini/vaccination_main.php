@@ -25,6 +25,7 @@
         <?php $root=$_SERVER['DOCUMENT_ROOT'];
               //include("$root/pet/Models/GetData.php");
               include("$root/pet/Controllers/Basic.php");
+              include("$root/pet/Controllers/Insert_Details.php");
               
               session_start();
               $_SESSION['usr_id']=1;
@@ -86,17 +87,22 @@
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div> 
-    </nav>
-      
+    </nav>              
         
-        <div class="popup1">
+        <div class="col-md-12 mt-120">
+            <button class="but but-sm-24 new" type="button" onclick="popup()" ><span class="glyphicon glyphicon-arrow-down"></span>Add New</button>
+        </div>
+        
+        <div class="popup10">
            <?php include 'vaccination_List.php'; ?>  
         </div>
         
-        <div class="popup1">
+        <div class="popup2">
            <?php include 'vaccination_Edit.php'; ?>  
         </div>
-
+        
+        
+        
        
         
     </body>   
@@ -105,7 +111,11 @@
     
 </html>
 
-<script>
+<script>    
+ $(window).load(function () {
+     $('.popup10').show();
+     $('.popup2').hide();
+ });   
  
  function setPetProfile(id){
      //console.log(id);
@@ -126,6 +136,12 @@
             }
         });
         location.reload();
+ }
+ 
+ function popup()
+ {
+     $('.popup2').show();
+     $('.popup10').hide();
  }
     
 </script>
