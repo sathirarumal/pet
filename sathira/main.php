@@ -27,7 +27,7 @@
               include("$root/pet/Controllers/Basic.php");
               
               session_start();
-              $_SESSION['usr_id']=1;
+              //$_SESSION['usr_id']=1;
               ?>
         
     </head>
@@ -44,7 +44,7 @@
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pet<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Foods</a></li>
+                            <li><a href="/pet/madu/test1.php">Foods</a></li>
                             <li><a href="/pet/rashini/vaccination_main.php">Vaccines</a></li>
                             <li><a href="#">medicines</a></li>
                             <li><a href="#">Daily Activities</a></li>                            
@@ -69,7 +69,7 @@
                         </li>    
                     <?php $x=GetData::getUsrType();?>    
                     <?php if($x == 1) { ?>    
-                    <li><a href="#">Admin</a></li>
+                    <li><a href="/pet/kisal/kisal.php">Admin</a></li>
                     <?php } ?>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -79,7 +79,7 @@
                             <li><a href="/pet/rashini/UserProfile.php"> My Profile</a></li>
                             <li><a href="#">Settings</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Log out</a></li>
+                            <li><a href="/pet/rashini/login.php">Log out</a></li>
                         </ul>
                     </li>
                     

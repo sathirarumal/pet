@@ -38,19 +38,20 @@
                 <h1 class="title">User Registration</h1>
                 <h6 class="title mt-2"></h6>
             </div>
+            <form action="" method="post">
                   <div class="row">
                        <div class="col-md-12">
                                     <div class="row form-row">    
                                         <div class="col-md-4 input-layout">
                                             <h4 class="title">First Name</h4>
-                                            <input type="text" class="" id="fname">
+                                            <input type="text" class="" name="fname">
                                         </div>
                            
                            
                                          
                                         <div class="col-md-4 input-layout">                                            
                                             <h4 class="title">Last Name</h4>
-                                            <input type="text" class="" id="lname">
+                                            <input type="text" class="" name="lname">
                                         </div>
                                     </div>
 
@@ -60,7 +61,7 @@
                                     <div class="row form-row"> 
                                         <div class="col-md-4 input-layout">
                                             <h4 class="title">Birthday</h4>
-                                            <input type="text" class="" id="bday">
+                                            <input type="text" class="" name="bday">
                                         </div>
                                     </div>
                            
@@ -83,7 +84,7 @@
                                     <div class="row form-row">     
                                         <div class="col-md-4 input-layout">
                                             <h4 class="title">Email Address</h4>
-                                            <input type="text" class="" id="eaddress">
+                                            <input type="text" class="" name="eaddress">
                                         </div>
                                     </div>   
                            
@@ -91,7 +92,7 @@
                                     <div class="row form-row">     
                                         <div class="col-md-4 input-layout">
                                             <h4 class="title">Telephone Number</h4>
-                                            <input type="text" class="" id="pnum">
+                                            <input type="text" class="" name="pnum">
                                         </div>
                                         
                                     </div>
@@ -100,22 +101,47 @@
                                         
                                         <div class="col-md-4 input-layout">
                                             <h4 class="title">Country</h4>
-                                            <input type="text" class="" id="country">
+                                            <input type="text" class="" name="country">
                                         </div>
                                     </div>
+                           <div class="divider"></div>
+                                    <div class="row form-row">
+                                        
+                                        <div class="col-md-4 input-layout">
+                                            <h4 class="title">USER NAME</h4>
+                                            <input type="text" class="" name="username">
+                                        </div>
+                                    </div>
+                                    <div class="row form-row">
+                                        
+                                        <div class="col-md-4 input-layout">
+                                            <h4 class="title">PASSWORD</h4>
+                                            <input type="text" class="" name="password">
+                                        </div>
+                                    </div>
+                               
                            
                              </div>
-                             </div>
+                             
+            
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                           <button type="submit" class="bx-but bx-save" >Save</button>
-                                        </div>
-                                    </div>
+                                           <button type="submit" class="bx-but bx-save" name="save" >Save</button>
+                                        </div>                                   </div>
 
                     </div>
+                </form>
                 </div>
             </div>
     </body>
 </html>
+<?php
+if(isset($_POST['save'])){
 
+//        $username=$_POST['username'];
+//        $password=$_POST['password'];
+//        $fname=$_post['fname'];
+    
+    }
+?>    
