@@ -39,17 +39,15 @@
             </div>
            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="main.php" >Home</a></li>
+                    <li><a href="/pet/sathira/main.php" >Home</a></li>
                     <li><a href="#">Gallery</a></li>
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pet<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Foods</a></li>
-                            <li><a href="#">Vaccines</a></li>
+                            <li><a href="/pet/madu/test1.php">Foods</a></li>
+                            <li><a href="/pet/rashini/vaccination_main.php">Vaccines</a></li>
                             <li><a href="#">medicines</a></li>
-                            <li><a href="#">Daily Activities</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Daily Activities</a></li>                            
                         </ul>
                         </li>
                     <li class="dropdown">
@@ -60,23 +58,25 @@
                           </a>
                         <ul class="dropdown-menu" >
                          <?php $results= GetData::getPets();
-                                while($rows = mysqli_fetch_array($results)){
+                               while($rows = mysqli_fetch_array($results)){
                                 ?>
                                 
                             <li onclick="setPetProfile(<?php echo $rows['pet_id']?>);"><a href="#"><?php echo $rows['pet_name'];?></a></li>
                                 <?php } ?>
+                            <li class="divider"></li>
+                            <li><a href="/pet/rashini/PetProfile.php">Profile</a></li>
                         </ul>
                         </li>    
-                    <?php $x=0; ?>    
+                    <?php $x=GetData::getUsrType();?>    
                     <?php if($x == 1) { ?>    
-                    <li><a href="#">Admin</a></li>
+                    <li><a href="/pet/kisal/kisal.php">Admin</a></li>
                     <?php } ?>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="color:#1C88B6" ><span class="glyphicon glyphicon-user "></span><b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"> Edit Profile</a></li>
+                            <li><a href="/pet/rashini/UserProfile.php"> My Profile</a></li>
                             <li><a href="#">Settings</a></li>
                             <li class="divider"></li>
                             <li><a href="#">Log out</a></li>

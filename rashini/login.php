@@ -29,6 +29,7 @@
               //include("$root/pet/Models/GetData.php");
               include("$root/pet/Controllers/Basic.php");
               session_start();
+              $_SESSION['pet_id']=1;
               ?>
     </head>
     <body>
@@ -38,7 +39,7 @@
 
     <!-- Icon -->
     <div class="fadeIn first">
-        <h3 class="details bg-blue">Sign Up</h3>
+        <h3 class="details bg-blue">Sign In</h3>
     </div>
 
     <!-- Login Form -->
