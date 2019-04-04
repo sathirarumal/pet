@@ -496,7 +496,7 @@ without last element
 }
 
 .pt-20 {
-    padding-top: 20px !important;
+    padding-top: 15px !important;
 }
 
 .pt-25 {
@@ -529,7 +529,7 @@ without last element
 }
 
 .pb-20 {
-    padding-bottom: 20px !important;
+    padding-bottom: 30px !important;
 }
 
 .pb-30 {
@@ -916,6 +916,7 @@ h6.title {
 .img-wrp--35 {
     width: 35px;
     height: 35px;
+    border: 2px white;
 }
 
 .img-wrp--35 img {

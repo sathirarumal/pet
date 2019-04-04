@@ -10,8 +10,6 @@
         <link href="/pet/css/custom/button.css" rel="stylesheet" />
         <link href="/pet/css/custom/common.css" rel="stylesheet" />
         <link href="/pet/css/custom/mainmenu.css" rel="stylesheet" />
-        <link href="/pet/css/custom/form.css" rel="stylesheet" />
-        <link href="/pet/css/custom/accordion.css" rel="stylesheet" />
         
         <!--====================================================================
         Java script
@@ -22,7 +20,6 @@
         <script src="/pet/js/bootstrap.min.js"></script>
         <script src="/pet/js/custom/custom-plugins-collections.js"></script>
         <script src="/pet/js/custom/common.js"></script>
-        <script src="/pet/js/custom/form.js"></script>
         
         <!-- =====================================================================-->
         <?php $root=$_SERVER['DOCUMENT_ROOT'];
