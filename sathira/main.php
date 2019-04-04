@@ -30,7 +30,7 @@
               include("$root/pet/Controllers/Basic.php");
               
               session_start();
-              $_SESSION['usr_id']=1;
+              //$_SESSION['usr_id']=1;
               ?>
         
     </head>
@@ -85,6 +85,15 @@
                     </li>    
                     <li class="dropdown pt-20">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-user "></span><b class="caret"></b></a>
+                        </li>    
+                    <?php $x=GetData::getUsrType();?>    
+                    <?php if($x == 1) { ?>    
+                    <li><a href="/pet/kisal/kisal.php">ADMIN</a></li>
+                    <?php } ?>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="color:#1C88B6" ><span class="glyphicon glyphicon-user "></span><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="/pet/rashini/UserProfile.php"> My Profile</a></li>
                             <li><a href="#">Settings</a></li>

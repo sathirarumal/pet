@@ -25,5 +25,18 @@ class Insert_Details {
       }    
          
      }
+     
+     public static function Register($usr_fname, $usr_lname, $usr_b_day, $usr_gender, $usr_country, $usr_email, $usr_telno) {
+      $dbs = Connection::connect();  
+      try{
+          $sql = "INSERT INTO pet_vaccine (usr_fname, usr_lname, usr_b_day, usr_gender, usr_country, usr_email, usr_telno)"
+             . "values ('$usr_fname', '$usr_lname', '$usr_b_day', '$usr_gender', '$usr_country', '$usr_email', '$usr_telno')";
+          $dbs->query($sql);
+      
+      } catch (Exception $ex) {
+          echo $ex;
+      }    
+         
+     }
         
 }
