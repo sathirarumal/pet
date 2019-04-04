@@ -105,6 +105,17 @@ class GetData {
       
       return $result;
      }
+
      
+     public static function getPetactivity(){
+      $dbs = Connection::connect();  
+      $petId = $_SESSION['pet_id'];
+      
+      $sql = "SELECT * FROM pet_activities WHERE ref_pet_id = '$petId'";
+      $result = mysqli_query($dbs,$sql);
+
+      
+      return $result;
+     }
     
 }
