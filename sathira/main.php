@@ -10,6 +10,8 @@
         <link href="/pet/css/custom/button.css" rel="stylesheet" />
         <link href="/pet/css/custom/common.css" rel="stylesheet" />
         <link href="/pet/css/custom/mainmenu.css" rel="stylesheet" />
+        <link href="/pet/css/custom/form.css" rel="stylesheet" />
+        <link href="/pet/css/custom/accordion.css" rel="stylesheet" />
         
         <!--====================================================================
         Java script
@@ -20,6 +22,7 @@
         <script src="/pet/js/bootstrap.min.js"></script>
         <script src="/pet/js/custom/custom-plugins-collections.js"></script>
         <script src="/pet/js/custom/common.js"></script>
+        <script src="/pet/js/custom/form.js"></script>
         
         <!-- =====================================================================-->
         <?php $root=$_SERVER['DOCUMENT_ROOT'];
@@ -32,28 +35,41 @@
         
     </head>
     <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Pet Care</a>
+            <div class="navbar-header navbar-left">
+                <img src="/pet/images/logo.png" style="width:50px;height:50px">
+            </div>
+            <div class="navbar-header navbar-left pr-30">
+                <h1 class="navbar white pt-20" style="font-family:Times New Roman">PET CARE</h1>
             </div>
            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="/pet/sathira/main.php" >Home</a></li>
-                    <li><a href="#">Gallery</a></li>
+                <ul class="nav navbar-nav pt-20">
+                    <li><a href="/pet/sathira/main.php" >HOME</a></li>
+                    <li><a href="#">GALLERY</a></li>
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pet<b class="caret"></b></a>
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">MANAGE PETS<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/pet/madu/test1.php">Foods</a></li>
-                            <li><a href="/pet/rashini/vaccination_main.php">Vaccines</a></li>
-                            <li><a href="#">medicines</a></li>
-                            <li><a href="#">Daily Activities</a></li>                            
+                            <li><a href="#">FOODS</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/pet/rashini/vaccination_main.php">VACCINES</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">MEDICINES</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">DAILY ACTIVITIES</a></li>                            
                         </ul>
                         </li>
-                    <li class="dropdown">
+                        
+                    <?php $x=GetData::getUsrType();?>    
+                    <?php if($x == 1) { ?>    
+                    <li><a href="#">ADMIN</a></li>
+                    <?php } ?>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown img-wr">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle"><?php $row=GetData::getPetsWithThambnail();
                            //echo $row['pet_name']; 
-                           echo '<div class="img-wrp--35"><img src="data:image/jpeg;base64,'.base64_encode( $row['pet_pic'] ).'" class="" alt="Cinque Terre"></div>';
+                           echo '<div class="img-wrp--50"><img src="data:image/jpeg;base64,'.base64_encode( $row['pet_pic'] ).'" class="" alt="Cinque Terre"></div>';
                            ?>
                           </a>
                         <ul class="dropdown-menu" >
@@ -64,12 +80,15 @@
                             <li onclick="setPetProfile(<?php echo $rows['pet_id']?>);"><a href="#"><?php echo $rows['pet_name'];?></a></li>
                                 <?php } ?>
                             <li class="divider"></li>
-                            <li><a href="/pet/rashini/PetProfile.php">Profile</a></li>
+                            <li><a href="/pet/rashini/PetProfile.php">PET PROFILE</a></li>
                         </ul>
+                    </li>    
+                    <li class="dropdown pt-20">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-user "></span><b class="caret"></b></a>
                         </li>    
                     <?php $x=GetData::getUsrType();?>    
                     <?php if($x == 1) { ?>    
-                    <li><a href="/pet/kisal/kisal.php">Admin</a></li>
+                    <li><a href="/pet/kisal/kisal.php">ADMIN</a></li>
                     <?php } ?>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
