@@ -58,5 +58,30 @@ class Basic{
 
         return $row['pet_breed_name'];
     }
+   
+    public static function register($usr_fname, $usr_lname, $usr_b_day, $usr_gender, $usr_country, $usr_email, $usr_telno)
+    {
+        $dbs= Connection::connect();
+        try{
+            $sql= "INSERT INTO user_details (usr_fname, usr_lname, usr_b_day, usr_gender, usr_country, usr_email, usr_telno) values ('$usr_fname', '$usr_lname', '$usr_b_day', '$usr_gender', '$usr_country', '$usr_email', '$usr_telno')";
+            $dbs->query($sql);
+        }
+        catch (Exception $ex){
+            echo $ex;
+        }
+    }
+    
+    public static function password($usr_id, $uname, $pwd)
+    {
+        $dbs= Connection::connect();
+        try {
+            $sql="INSERT INTO user_profile (usr_id, usr_username, usr_password) values ('$usr_id', '$uname', $pwd)";
+            $dbs->query($sql);
+            
+        } catch (Exception $ex) {
+            echo $ex;
+        }
+    }
+    
     
 }
