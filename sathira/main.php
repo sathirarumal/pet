@@ -89,7 +89,7 @@
                             <li><a href="/pet/rashini/UserProfile.php"> My Profile</a></li>
                             <li><a href="#">Settings</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Log out</a></li>
+                            <li><a href="#">LOG OUT</a></li>
                         </ul>
                     </li>
                     
