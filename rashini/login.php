@@ -32,19 +32,17 @@
               $_SESSION['pet_id']=1;
               ?>
     </head>
-    <body>
+    <body style="background-image:url(/pet/images/pets.png);">
     <div class="wrapper fadeInDown">
      <div id="formContent">
-    <!-- Tabs Titles -->
-
-    <!-- Icon -->
+    
     <div class="fadeIn first">
-        <h3 class="details bg-blue">Sign In</h3>
+        <h1 class="details bg-blue">Sign In</h1>
     </div>
 
     <!-- Login Form -->
     <form action="" method="post">
-      <input type="text" id="login" class="fadeIn second" name="username" placeholder="login">
+      <input type="text" id="login" class="fadeIn second" name="username" placeholder="username">
       <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
       <input type="submit" class="fadeIn fourth" name="save" value="Log In">
     </form>
