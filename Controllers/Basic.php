@@ -24,7 +24,7 @@ class Basic{
         if($data != null)
         {   
             $_SESSION['usr_id']=$data['usr_id'];
-            header('Location: /pet/sathira/main.php');
+            header('Location: /pet/MainDashboard/main.php');
             
         }
         else{
@@ -81,6 +81,11 @@ class Basic{
         } catch (Exception $ex) {
             echo $ex;
         }
+    }
+    
+    public static function logout()
+    {
+        $_SESSION['usr_id'] = null;
     }
     
     

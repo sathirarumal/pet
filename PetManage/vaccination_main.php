@@ -30,7 +30,7 @@
               include("$root/pet/Controllers/Basic.php");
               
               session_start();
-              $_SESSION['usr_id']=1;
+              //$_SESSION['usr_id']=1;
               ?>
         
     </head>
@@ -45,28 +45,38 @@
             </div>
            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav pt-20">
-                    <li><a href="/pet/sathira/main.php" >HOME</a></li>
-                    <li><a href="#">GALLERY</a></li>
-
+                    <li><a href="/pet/MainDashboard/main.php" >HOME</a></li>
+                    <li><a href="/pet/Gallery/Gallery.php">GALLERY</a></li>
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">MANAGE PETS<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">FOODS</a></li>
+                            <li><a href="/pet/PetManage/food_main.php">FOODS</a></li>
                             <li class="divider"></li>
-                            <li><a href="/pet/rashini/vaccination_main.php">VACCINES</a></li>
+                            <li><a href="/pet/PetManage/vaccination_main.php">VACCINES</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">MEDICINES</a></li>
+                            <li><a href="/pet/PetManage/med_main.php">MEDICINES</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">DAILY ACTIVITIES</a></li>                                                 
+                            <li><a href="/pet/PetManage/dailyactivity_main.php">DAILY ACTIVITIES</a></li>                            
                         </ul>
                         </li>
                         
                     <?php $x=GetData::getUsrType();?>    
                     <?php if($x == 1) { ?>    
-                    <li><a href="#">ADMIN</a></li>
+                    <li><a href="/pet/Admin/Admin_main.php">ADMIN</a></li>
                     <?php } ?>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
+               <ul class="nav navbar-nav navbar-right pt-15">
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="color:#FFFFFF"><span class="glyphicon glyphicon-user" ></span><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/pet/Basics/UserProfile.php"> MY PROFILE</a></li>
+                            <li><a href="/pet/MainDashboard/Settings.php">SETTINGS</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/pet/Basics/login.php">LOG OUT</a></li>
+                        </ul>
+                    </li>                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown img-wr">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle"><?php $row=GetData::getPetsWithThambnail();
                            //echo $row['pet_name']; 
@@ -81,38 +91,16 @@
                             <li onclick="setPetProfile(<?php echo $rows['pet_id']?>);"><a href="#"><?php echo $rows['pet_name'];?></a></li>
                                 <?php } ?>
                             <li class="divider"></li>
-                            <li><a href="/pet/rashini/PetProfile.php">PET PROFILE</a></li>
+                            <li><a href="/pet/Basics/PetProfile.php">PET PROFILE</a></li>
                         </ul>
                     </li>    
-                    <li class="dropdown pt-20">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-user "></span><b class="caret"></b></a>        
-                    <?php $x=GetData::getUsrType();?>    
-                    <?php if($x == 1) { ?>    
-                    <li><a href="/pet/kisal/kisal.php">ADMIN</a></li>
-                    <?php } ?>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="color:#1C88B6" ><span class="glyphicon glyphicon-user "></span><b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/pet/rashini/UserProfile.php"> My Profile</a></li>
-                            <li><a href="#">Settings</a></li>
-                            <li class="divider"></li>
-                            <li><a href="/pet/rashini/login.php">Log out</a></li>
-                        </ul>
-                    </li>
-                    
-                </ul>
+                </ul>              
             </div><!-- /.navbar-collapse -->
         </div> 
-    </nav>                
-        <div class="first pt-30">
-           <?php include 'vaccination_Edit.php'; ?>  
-        </div>
+    </nav>
+   
+
         
-        
-        
-       
         
     </body>   
     
@@ -120,11 +108,7 @@
     
 </html>
 
-<script>    
- $(window).load(function () {
-     $('.popup10').show();
-     $('.popup2').hide();
- });   
+<script>
  
  function setPetProfile(id){
      //console.log(id);
@@ -146,12 +130,5 @@
         });
         location.reload();
  }
- 
- function popup()
- {
-     $('.popup2').show();
-     $('.popup10').hide();
- }
     
 </script>
-
