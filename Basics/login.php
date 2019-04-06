@@ -28,8 +28,8 @@
         <?php $root=$_SERVER['DOCUMENT_ROOT'];
               //include("$root/pet/Models/GetData.php");
               include("$root/pet/Controllers/Basic.php");
-              session_start();
-              $_SESSION['pet_id']=1;
+              session_start();              
+              Basic::logout();
               ?>
     </head>
     <body style="background-image:url(/pet/images/pets.png);">

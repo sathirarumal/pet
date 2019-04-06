@@ -66,12 +66,16 @@ class GetData {
      public static function getUsrType(){
       $dbs = Connection::connect();  
       $userId = $_SESSION['usr_id'];
-      
+      if($userId == null){
+        header('Location: /pet/Basics/login.php');
+      }
+      else{
       $sql = "SELECT * FROM user_profile WHERE usr_id = '$userId'";
       $result = mysqli_query($dbs,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       
       return $row['usr_type'];
+      }
      }
      
      public static function getPetfoods(){
