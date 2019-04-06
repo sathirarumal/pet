@@ -88,7 +88,7 @@
                                while($rows = mysqli_fetch_array($results)){
                                 ?>
                                 
-                            <li onclick="setPetProfile(<?php echo $rows['pet_id']?>);"><a href="#"><?php echo $rows['pet_name'];?></a></li>
+                            <li onclick="setPetProfile(<?php echo $rows['pet_id']?>);"><a href="#"><?php echo strtoupper($rows['pet_name']);?></a></li>
                                 <?php } ?>
                             <li class="divider"></li>
                             <li><a href="/pet/Basics/PetProfile.php">PET PROFILE</a></li>
@@ -99,6 +99,9 @@
         </div> 
     </nav>
    
+        <div class="insert">
+            <?php include 'Medicine.php'; ?>            
+        </div>
 
         
         
