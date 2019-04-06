@@ -8,7 +8,7 @@
 <div class="container main-wrapper" style="max-width:45%; max-height:50%;">
         <div class="contert-wrapper pb-15">
             <div class="cell pb-20">
-                <h1 class="title">Vaccination details</h1>
+                <h1 class="title">SCHEDULE VACCINE DATES</h1>
             </div>
             <form action="" method="post" id="vaccine">
                   <div class="row">
@@ -16,19 +16,19 @@
                            
                                     <div class="row form-row">    
                                         <div class="col-md-4 input-layout">
-                                            <h4 class="title">Vaccine Name</h4>
+                                            <h4 class="title">VACCINE NAME</h4>
                                             <input type="text" class="lettersonly" name="vname">
                                         </div>
                                         
                                         <div class="col-md-4 input-layout">
-                                            <h4 class="title">Vaccination Type</h4>
+                                            <h4 class="title">VACCINE TYPE</h4>
                                             <input type="text" class="" name="vtype">
                                         </div>
                                     </div>
                            
                                     <div class="row form-row">
                                         <div class="col-md-4 input-layout pl-20" style="width:170px">
-                                        <h5 class="title">Enter Direct Date :</h5>
+                                        <h5 class="title">@ Inject Once ?</h5>
                                         </div>
                                         <div class="col-md-4 input-layout">
                                         <input type="checkbox" class="lcs_switch  lcs_checkbox_switch lcs_on" value="1" uncheckvalue uncheckValue="0" name="isDate"/>
@@ -45,13 +45,18 @@
                            
                                     <div class="row form-row" id="forPeriod">
                                         
+                                        <div class="col-md-4 input-layout">                                            
+                                            <h4 class="title">Initial Date</h4>
+                                            <input type="text" class="datepick" data-language="en" name="date">
+                                        </div>
+                                        
                                         <div class="col-md-4 input-layout">
-                                            <h4 class="title">Vaccination Period Type</h4>
+                                            <h4 class="title">Period Type</h4>
                                             <input type="text" class="" name="vptype">
                                         </div>
                                         
                                         <div class="col-md-4 input-layout">
-                                            <h4 class="title">Vaccination Period</h4>
+                                            <h4 class="title">Period Count</h4>
                                             <input type="text" class="" name="vperiod">
                                         </div>                                       
                                        

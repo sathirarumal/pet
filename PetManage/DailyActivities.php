@@ -1,32 +1,10 @@
+<link href="/pet/css/plugins/airDatepicker/datepicker.css" rel="stylesheet" />
+<link href="/pet/css/plugins/lcSwitch/lc_switch.css" rel="stylesheet" />
+<script src="/pet/js/plugins/airDatepicker/datepicker.min.js"></script>
+<script src="/pet/js/plugins/airDatepicker/i18n/datepicker.en.js"></script>
+<script src="/pet/js/plugins/validate/jquery.validate11.js"></script>
+<script src="/pet/js/plugins/lcSwitch/lc_switch.min.js"></script>
 
-<html>
-    <head>
-        <!--====================================================================
-        Style sheet
-       =====================================================================-->
-        <link href="/pet/fonts/font.css" rel="stylesheet" />
-        <link href="/pet/css/bootstrap.css" rel="stylesheet" />
-        <link href="/pet/css/custom/normalize.css" rel="stylesheet" />
-        <link href="/pet/css/custom/button.css" rel="stylesheet" />
-        <link href="/pet/css/custom/common.css" rel="stylesheet" />
-        <link href="/pet/css/custom/mainmenu.css" rel="stylesheet" />
-        <link href="/pet/css/custom/form.css" rel="stylesheet" />
-        <link href="/pet/css/custom/accordion.css" rel="stylesheet" />
-
-        <!--====================================================================
-        Java script
-        =====================================================================-->
-        <script src="/pet/js/jquery.min.js"></script>
-        <script src="/pet/js/jquery-1.11.2.min.js"></script>
-        <script src="/pet/js/jquery-ui-1.12.0.js"></script>
-        <script src="/pet/js/bootstrap.min.js"></script>
-        <script src="/pet/js/custom/custom-plugins-collections.js"></script>
-        <script src="/pet/js/custom/common.js"></script>
-        <script src="/pet/js/custom/form.js"></script>
-        
-        <!-- =====================================================================-->
-    </head> 
-    <body>
     <div class="container main-wrapper">
     <div class="bread-crumb-wrp with-mb">
         <a>User</a>
@@ -90,7 +68,5 @@
                     </div>
                 </div>
             </div>
-    </body>
-</html>
 
 

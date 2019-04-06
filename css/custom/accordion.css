@@ -108,3 +108,7 @@ a.ui-sm-link,
 .active-link {
     display: inline-block !important;
 }
+
+.insert {
+    padding: 30px 40px 0;
+}
