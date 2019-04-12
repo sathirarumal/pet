@@ -51,7 +51,7 @@
     <div id="formFooter">
       <a class="underlineHover" href="#">Forgot Password?</a>
       or
-      <a class="underlineHover red ml-15" href="/pet/rashini/register.php">REGISTER</a>
+      <a class="underlineHover red ml-15" href="/pet/Basics/register.php">REGISTER</a>
     </div>
 
     </div>
