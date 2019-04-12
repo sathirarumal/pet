@@ -38,7 +38,7 @@
                                     <div class="row form-row" id="forDate">     
                                         <div class="col-md-4 input-layout">                                            
                                             <h4 class="title">Date</h4>
-                                            <input type="text" class="datepick" data-language="en" name="date">
+                                            <input type="text" class="datepick" data-language="en" name="date2">
                                         </div>
                                     </div>
                            
@@ -47,7 +47,7 @@
                                         
                                         <div class="col-md-4 input-layout">                                            
                                             <h4 class="title">Initial Date</h4>
-                                            <input type="text" class="datepick" data-language="en" name="date">
+                                            <input type="text" class="datepick" data-language="en" name="date1">
                                         </div>
                                         
                                         <div class="col-md-4 input-layout">
@@ -66,7 +66,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button type="submit" class="bx-but bx-save" name="save" onclick="saveVaccine();" >Save</button>
+                                    <button type="button" class="bx-but bx-save" name="save" onclick="saveVaccine();" >Save</button>
                                 </div>
                             </div>
 
@@ -106,7 +106,7 @@
          //console.log("sdsdsd");
         jQuery.ajax({
         type: "POST",
-        url: '/pet/Controllers/vaccine.php',
+        url: '/pet/Controllers/actionVaccine.php',
         dataType: 'json',
         data: $('#vaccine').serialize(),
 

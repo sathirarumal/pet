@@ -30,7 +30,6 @@
               include("$root/pet/Controllers/Basic.php");
               
               session_start();
-              //$_SESSION['usr_id']=1;
               ?>
         
     </head>
