@@ -111,4 +111,9 @@ a.ui-sm-link,
 
 .insert {
     padding: 30px 40px 0;
+    z-index: 100;
+}
+
+.pop {
+    z-index: 200;
 }

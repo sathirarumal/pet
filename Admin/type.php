@@ -1,22 +1,8 @@
 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
         <link href="/pet/css/custom/form.css" rel="stylesheet" />
         <link href="/pet/css/custom/accordion.css" rel="stylesheet" />
         <script src="/pet/js/custom/form.js"></script>
         
-    </head>   
-    <body>
-        <?php
-if (isset($_POST['save'])){
-$pet_type_name=$_POST['tname'];
-//var_dump($pet_type_name);
-insertAdmin::Insert_type($pet_type_name);
-
-}
-?>
     <div class="container main-wrapper">    
     <div class="bread-crumb-wrp with-mb">
         <a>Administrator</a>
@@ -28,7 +14,7 @@ insertAdmin::Insert_type($pet_type_name);
                 <h1 class="title">Pet Type</h1>
                 <h6 class="title mt-2"></h6>
             </div>
-            <form action="" method="post">
+            <form action="" method="post" id="addType">
                   <div class="row">
                        <div class="col-md-12">
                            
@@ -43,7 +29,7 @@ insertAdmin::Insert_type($pet_type_name);
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button type="submit" class="bx-but bx-save" name="save" >Save</button>
+                                    <button type="button" class="bx-but bx-save" name="addBreed" onclick="addtype();" >ADD</button>
                                 </div>
                             </div>
 
@@ -51,5 +37,26 @@ insertAdmin::Insert_type($pet_type_name);
             </form>
                 </div>
             </div>
-    </body>
-</html>
+
+<script>
+                
+function addtype(){
+        //console.log("sdsdsd");
+        jQuery.ajax({
+        type: "POST",
+        url: '/pet/Controllers/actionAddType.php',
+        dataType: 'json',
+        data: $('#addType').serialize(),
+
+        success: function (obj,Success) {
+                  if( !('error' in obj) ) {
+                      Success = obj.result;
+                  }
+                  else {
+                      console.log(obj.error);
+                  }
+            }
+        });
+     }
+        
+</script>  

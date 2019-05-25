@@ -1,22 +1,7 @@
 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
         <link href="/pet/css/custom/form.css" rel="stylesheet" />
         <link href="/pet/css/custom/accordion.css" rel="stylesheet" />
         <script src="/pet/js/custom/form.js"></script>
-        
-    </head>   
-    <body>
-        <?php
-if (isset($_POST['save'])){
-$country=$_POST['coname'];
-var_dump($country);
-insertCountry::Insert_country($country);
-
-}
-?>
     <div class="container main-wrapper">    
     <div class="bread-crumb-wrp with-mb">
         <a>Administrator</a>
@@ -28,7 +13,7 @@ insertCountry::Insert_country($country);
                 <h1 class="title">Country</h1>
                 <h6 class="title mt-2"></h6>
             </div>
-            <form action="" method="post">
+            <form action="" method="post" id="addcontry">
                   <div class="row">
                        <div class="col-md-12">
                            
@@ -43,7 +28,7 @@ insertCountry::Insert_country($country);
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button type="submit" class="bx-but bx-save" name="save" >Save</button>
+                                    <button type="button" class="bx-but bx-save" onclick="addcountry();" >ADD</button>
                                 </div>
                             </div>
 
@@ -51,5 +36,26 @@ insertCountry::Insert_country($country);
             </form>
                 </div>
             </div>
-    </body>
-</html>
+        
+<script>
+                
+function addcountry(){
+        //console.log('dsds') 
+        jQuery.ajax({
+        type: "POST",
+        url: '/pet/Controllers/actionAddCountry.php',
+        dataType: 'json',
+        data: $('#addcontry').serialize(),
+
+        success: function (obj,Success) {
+                  if( !('error' in obj) ) {
+                      Success = obj.result;
+                  }
+                  else {
+                      console.log(obj.error);
+                  }
+            }
+        });
+     }
+        
+</script>        

@@ -1,22 +1,6 @@
-
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
         <link href="/pet/css/custom/form.css" rel="stylesheet" />
         <link href="/pet/css/custom/accordion.css" rel="stylesheet" />
         <script src="/pet/js/custom/form.js"></script>
-        
-    </head>   
-    <body>
-        <?php
-if (isset($_POST['save'])){
-$period=$_POST['pname'];
-var_dump($period);
-insertPeriod::Insert_period($period);
-
-}
-?>
     <div class="container main-wrapper">    
     <div class="bread-crumb-wrp with-mb">
         <a>Administrator</a>
@@ -28,7 +12,7 @@ insertPeriod::Insert_period($period);
                 <h1 class="title">Period</h1>
                 <h6 class="title mt-2"></h6>
             </div>
-            <form action="" method="post">
+            <form action="" method="post" id="addperiod">
                   <div class="row">
                        <div class="col-md-12">
                            
@@ -43,13 +27,34 @@ insertPeriod::Insert_period($period);
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button type="submit" class="bx-but bx-save" name="save" >Save</button>
+                                    <button type="button" class="bx-but bx-save" onclick="addperiods();" >ADD</button>
                                 </div>
                             </div>
 
                     </div>
             </form>
                 </div>
-            </div>
-    </body>
-</html>
+            </div>   
+
+<script>
+                
+function addperiods(){
+        //console.log('dsds') 
+        jQuery.ajax({
+        type: "POST",
+        url: '/pet/Controllers/actionAddPeriod.php',
+        dataType: 'json',
+        data: $('#addperiod').serialize(),
+
+        success: function (obj,Success) {
+                  if( !('error' in obj) ) {
+                      Success = obj.result;
+                  }
+                  else {
+                      console.log(obj.error);
+                  }
+            }
+        });
+     }
+        
+</script>  

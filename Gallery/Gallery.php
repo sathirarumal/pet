@@ -98,8 +98,14 @@
             </div><!-- /.navbar-collapse -->
         </div> 
     </nav>
-   
-
+        
+        <div class="insert">
+            <?php include 'allImages.php'; ?>            
+        </div>
+        <div class="float-right">
+            <?php include 'upload.php'; ?>            
+        </div>
+        
         
         
     </body>   
