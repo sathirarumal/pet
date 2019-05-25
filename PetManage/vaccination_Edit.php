@@ -106,7 +106,7 @@
          //console.log("sdsdsd");
         jQuery.ajax({
         type: "POST",
-        url: '/pet/Controllers/actionVaccine.php',
+        url: '/pet/Controllers/actionAddVaccine.php',
         dataType: 'json',
         data: $('#vaccine').serialize(),
 

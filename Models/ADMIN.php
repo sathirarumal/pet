@@ -7,10 +7,13 @@
  */
 
 /**
- * Description of Insert_Details
+ * Description of ADMIN
  *
  * @author Rashini Gangadarie
  */
+$root=$_SERVER['DOCUMENT_ROOT'];
+include("$root/pet/Models/Connection.php");
+
 class ADMIN {
     
     
@@ -31,10 +34,10 @@ class ADMIN {
       $dbs = Connection::connect();  
       try{
             $sql = "INSERT INTO set_breed (ref_type_id, pet_breed_name, pet_breed_country)"
-             . "values ('$ref_type_id, $pet_breed_name, $pet_breed_country')";
+             . "values ('$ref_type_id', '$pet_breed_name', '$pet_breed_country')";
             $dbs->query($sql);
          } catch (Exception $ex) {
-            echo $ex;
+             return $ex;
          }
      }
       

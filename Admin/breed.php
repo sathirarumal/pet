@@ -1,25 +1,8 @@
 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
         <link href="/pet/css/custom/form.css" rel="stylesheet" />
         <link href="/pet/css/custom/accordion.css" rel="stylesheet" />
         <script src="/pet/js/custom/form.js"></script>
         
-    </head>   
-    <body>
-        <?php
-      
-if (isset($_POST['save'])){
-$ref_type_id=$_POST['tname'];
-$pet_breed_name=$_POST['bname'];
-$pet_breed_country=$_POST['cname'];
-var_dump($ref_type_id);
-    insertBreed::Insert_Breed($ref_type_id, $pet_breed_name, $pet_breed_country);
-
-}
-?>
     <div class="container main-wrapper">    
     <div class="bread-crumb-wrp with-mb">
         <a>Administrator</a>
@@ -31,7 +14,7 @@ var_dump($ref_type_id);
                 <h1 class="title">Pet Breed</h1>
                 <h6 class="title mt-2"></h6>
             </div>
-            <form action="" method="post">
+            <form action="" method="post" id="addBreed">
                   <div class="row">
                        <div class="col-md-12">
                            
@@ -58,7 +41,7 @@ var_dump($ref_type_id);
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button type="submit" class="bx-but bx-save" name="save" >Save</button>
+                                    <button type="button" class="bx-but bx-save" name="addBreed" onclick="addbreed();" >ADD</button>
                                 </div>
                             </div>
 
@@ -66,5 +49,27 @@ var_dump($ref_type_id);
             </form>
                 </div>
             </div>
-    </body>
-</html>
+
+
+<script>
+                
+function addbreed(){
+        //console.log("sdsdsd");
+        jQuery.ajax({
+        type: "POST",
+        url: '/pet/Controllers/actionAddBreed.php',
+        dataType: 'json',
+        data: $('#addBreed').serialize(),
+
+        success: function (obj,Success) {
+                  if( !('error' in obj) ) {
+                      Success = obj.result;
+                  }
+                  else {
+                      console.log(obj.error);
+                  }
+            }
+        });
+     }
+        
+</script>  
