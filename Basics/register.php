@@ -26,10 +26,11 @@
         <script src="/pet/js/custom/form.js"></script>
         <script src="/pet/js/plugins/airDatepicker/datepicker.min.js"></script>
         <script src="/pet/js/plugins/airDatepicker/i18n/datepicker.en.js"></script>
+        <script src="/pet/js/jquery.validate.js"></script>
         
         <!-- =====================================================================-->
     </head> 
-    <body style="background-image:url(/pet/images/1.jpg);">
+    <body style="background-image:url(/pet/images/8.jpg);">
     <div class="container main-wrapper">
     <div class="bread-crumb-wrp with-mb">
         <a>User</a>
@@ -38,33 +39,33 @@
         <div class="content" style="padding-left:200px;opacity:0.9 ">    
         <div class="contert-wrapper pb-15" style="width:85%">
             <div class="cell">
-                <h1 class="title" style="padding-left: 150px">REGISTRATION</h1>
+                <h1 class="title" style="padding-left: 230px">REGISTRATION</h1>
             </div>
-            <form action="" method="post" id="reg">
+            <form class="cmxform" action="" method="post" id="reg">
                   <div class="row">
                           <div class="col-md-12" style="padding-top:100px; padding-right: 100px; " >
                               <div class="row form-row">    
                                         <div class="col-md-4 input-layout col-md-offset-2">
                                             <h4 class="title">First Name</h4>
-                                            <input type="text" class="" name="fname">
+                                            <input type="text" id="cname" name="fname" required>
                                         </div>
                            
                            
                                          
                                         <div class="col-md-4 input-layout col-md-offset-2">                                            
                                             <h4 class="title">Last Name</h4>
-                                            <input type="text" class="" name="lname">
+                                            <input type="text" id="cname"  name="lname" required>
                                         </div>
                                     </div>
                               
                                     <div class="row form-row"> 
                                         <div class="col-md-4 input-layout col-md-offset-2">
                                             <h4 class="title">Birthday</h4>
-                                            <input type="text" class="datepick" data-language="en" name="bday">
+                                            <input type="text" class="datepick" data-language="en" name="bday" required>
                                         </div>
                                         <div class="col-md-4 input-layout col-md-offset-2">
                                             <h4 class="title">Country</h4>
-                                            <input type="text" class="" name="country">
+                                            <input type="text" id="cname" name="country" required>
                                         </div>
                                     </div>
                                     
@@ -85,7 +86,7 @@
                                     <div class="row form-row">     
                                         <div class="col-md-4 input-layout col-md-offset-2">
                                             <h4 class="title">Email Address</h4>
-                                            <input type="email" class="" name="email" >
+                                            <input type="email" class="" name="email" required>
                                         </div>
                                     </div>   
                            
@@ -93,7 +94,7 @@
                                     <div class="row form-row">     
                                         <div class="col-md-4 input-layout col-md-offset-2">
                                             <h4 class="title">Telephone Number</h4>
-                                            <input type="number" class="" name="pnum">
+                                            <input type="text" class="" name="pnum" required>
                                         </div>   
                                     </div>
                                    
@@ -101,13 +102,13 @@
                                         <hr size="10" noshade>
                                         <div class="col-md-4 input-layout col-md-offset-2">
                                             <h4 class="title">USER NAME</h4>
-                                            <input type="email" class="" name="username">
+                                            <input type="text" id="cname" minlength="8" name="username" required>
                                         </div>
                                     </div>
                                     <div class="row form-row">                                       
                                         <div class="col-md-4 input-layout col-md-offset-2">
                                             <h4 class="title">PASSWORD</h4>
-                                            <input type="password" class="" name="password">
+                                            <input type="password" class="" name="password" required>
                                         </div>
                                     </div>
                               </div>   
@@ -117,21 +118,31 @@
 
                                     <div class="row">
                                         <div class="col-md-8">
-                                            <button type="button" class="bx-but bx-save" name="save" onclick="registerThis();" >Save</button>
-                                        </div>                                   
+                                            <button type="submit" class="bx-but bx-save" name="save" onclick="registerThis();" >Save</button>
+                                        </div>
+                                        <div id="errormsg"> </div>
                                     </div>
+                <div class="alert-warning" id="error"></div>
+                <div class="alert-success" id="success"></div>
                 </form>
-        </div>                           
+        </div>
+            
     </div>
     </body>
 </html>
 
 <script>
     
+    $("#reg").validate({
+    submitHandler: function(form) {
+    form.submit();
+    }
+    });
+    
     $('.datepick').datepicker({
         language: 'en'
     });
-
+    
      function registerThis()
      {
         //console.log("sdsdsd");
@@ -141,13 +152,13 @@
         dataType: 'json',
         data: $('#reg').serialize(),
 
-        success: function (obj,Success) {
-                  if( !('error' in obj) ) {
-                      Success = obj.result;
-                  }
-                  else {
-                      console.log(obj.error);
-                  }
+        success: function (obj) {
+           if(obj.code == 300){
+               $('#error').html("Error username or email has already taken ").fadeout(5000);
+           }
+           else{
+               $('#success').html("Registration Successful").fadeout(5000);
+           }
             }
         });
      }

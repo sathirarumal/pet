@@ -33,29 +33,31 @@
 
                                                                 <div class="row pb-10">
                                                                     <div class="col-md-4 input-layout">
-                                                                        <h4 class="details"> Type : <?php echo Basic::getTypeByID($row['pet_type']);?></h4>
+                                                                        <h4 class="details"> <b>TYPE :</b> <?php echo Basic::getTypeByID($row['pet_type']);?></h4>
                                                                     </div>
                                                                     
                                                                     <div class="col-md-4 input-layout">
-                                                                        <h4 class="details"> Breed :  <?php echo Basic::getBreedByID($row['pet_breed']);?>  </h4>
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                <div class="row pb-10">
-                                                                    <div class="col-md-4 input-layout">
-									<h4 class="details"> Birthday :  <?php echo $row['pet_birthday']?> </h4>
-                                                                    </div>
-                                                                    
-                                                                    <div class="col-md-4 input-layout">
-									<h4 class="details"> Gender :  <?php echo $row['pet_gender']?> </h4>
+                                                                        <h4 class="details"> <b>BREED :</b>  <?php echo Basic::getBreedByID($row['pet_breed']);?>  </h4>
                                                                     </div>
                                                                     
                                                                 </div>
                                                                 <div class="row pb-10">
                                                                     <div class="col-md-4 input-layout">
-									<h4 class="details"> Note :  <?php echo $row['pet_note']?> </h4>
+                                                                        <h4 class="details"><b> BIRTHDAY : </b> <?php echo $row['pet_birthday']?> </h4>
+                                                                    </div>
+                                                                    
+                                                                    <div class="col-md-4 input-layout">
+                                                                        <h4 class="details"> <b>GENDER : </b> <?php echo $row['pet_gender']?> </h4>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                                <div class="row pb-10">
+                                                                    <div class="col-md-4 input-layout">
+                                                                        <h4 class="details"> <b>NOTE : </b> <?php echo $row['pet_note']?> </h4>
                                                                     </div>                                                                    
                                                                 </div> 
+                                                    
+
                                                                 
 							</div>
 
@@ -63,18 +65,7 @@
 						</div>
                                         </div>
 
-					<div class="space-20"></div>
 
-					<div class="row">
-						<div class="col-xs-12 col-sm-6">
-							<div class="widget-box transparent">
-								
-
-                                                        </div>
-						
-					
-                                                </div>
-                                        </div>
                                    </div>
                         </div>
             </div>
@@ -82,4 +73,28 @@
     </div>
     </body>
 </html>
-    
+
+  <script>
+        
+     function savePet()
+     {
+         //console.log("sdsdsd");
+        jQuery.ajax({
+        type: "POST",
+        url: '/pet/Controllers/actionAddPet.php',
+        dataType: 'json',
+        data: $('#petdetails').serialize(),
+
+        success: function (obj, textstatus) {
+                  if( !('error' in obj) ) {
+                      yourVariable = obj.result;
+                  }
+                  else {
+                      console.log(obj.error);
+                  }
+            }
+        });
+     }
+        
+</script>   
+  

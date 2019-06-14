@@ -19,11 +19,6 @@
                                             <h4 class="title">VACCINE NAME</h4>
                                             <input type="text" class="lettersonly" name="vname">
                                         </div>
-                                        
-                                        <div class="col-md-4 input-layout">
-                                            <h4 class="title">VACCINE TYPE</h4>
-                                            <input type="text" class="" name="vtype">
-                                        </div>
                                     </div>
                            
                                     <div class="row form-row">
@@ -69,6 +64,9 @@
                                     <button type="button" class="bx-but bx-save" name="save" onclick="saveVaccine();" >Save</button>
                                 </div>
                             </div>
+                      
+                      <div class="alert-warning" id="error"></div>
+                      <div class="alert-success" id="success"></div>
 
                     </div>
          </form>
@@ -110,13 +108,13 @@
         dataType: 'json',
         data: $('#vaccine').serialize(),
 
-        success: function (obj, textstatus) {
-                  if( !('error' in obj) ) {
-                      yourVariable = obj.result;
-                  }
-                  else {
-                      console.log(obj.error);
-                  }
+        success: function (obj) {
+                if(obj.code == 300){
+               $('#error').html("Error ").fadeout(5000);
+           }
+           else if(obj.code == 200){
+               $('#success').html("Vaccination details saved Successfully").fadeout(5000);
+           }
             }
         });
      }

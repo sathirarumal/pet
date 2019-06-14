@@ -24,9 +24,11 @@ class Basic{
         if($data != null)
         {   
             $_SESSION['usr_id']=$data['usr_id'];
-            Basic::setPetDefault($data['usr_id']);
-            header('Location: /pet/MainDashboard/main.php');
-            
+            if(Basic::setPetDefault($data['usr_id'])){
+                header('Location: /pet/MainDashboard/main.php');
+            } else {
+                header('Location:/pet/Basics/insertPet_Main.php');
+            }            
         }
         else{
             return 'error'; 
@@ -75,6 +77,19 @@ class Basic{
         return $usr_id;
     }
     
+    public static function insertPet($user_id, $pet_name, $pet_type, $breed, $birthday, $gender, $default)
+    {
+        $dbs= Connection::connect();
+        try{
+            $sql= "INSERT INTO pet_Profile (usr_id, pet_name, pet_type, pet_breed, pet_birthday, pet_gender, pet_default) values ('$user_id', '$pet_name', '$pet_type', '$breed', '$birthday', '$gender', '$default')";
+            $dbs->query($sql);
+            $usr_id = mysqli_insert_id($dbs);
+        }
+        catch (Exception $ex){
+            echo $ex;
+        }
+    }
+    
     public static function password($uname, $pwd ,$usr_id)
     {
         $dbs= Connection::connect();
@@ -99,7 +114,16 @@ class Basic{
         $sql = "SELECT pet_id FROM pet_profile WHERE pet_default=1 AND usr_id='$usrid'";
         $result = mysqli_query($dbs,$sql);
         $petid = mysqli_fetch_array($result,MYSQLI_ASSOC);
-        $_SESSION['pet_id']=$petid['pet_id'];
+        if($petid['pet_id'] != NULL){
+            $_SESSION['pet_id']=$petid['pet_id'];
+            return TRUE;
+        } else {
+            header('Location:/pet/Basics/insertPet_Main.php');
+            return FALSE;
+        }
+            
+        
+        
     }
     
     
