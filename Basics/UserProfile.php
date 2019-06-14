@@ -24,10 +24,9 @@
         <!-- =====================================================================-->
         <?php $root=$_SERVER['DOCUMENT_ROOT'];
               //include("$root/pet/Models/GetData.php");
-              include("$root/pet/Controllers/Basic.php");
-              
+              include("$root/pet/Controllers/Basic.php");              
               session_start();
-              $_SESSION['usr_id']=1;
+         
               ?>
         
 </head>
@@ -95,19 +94,29 @@
             </div><!-- /.navbar-collapse -->
         </div> 
     </nav>
-        <div class="popup1">
-            <?php include 'userDetails.php'; ?>            
+        
+        <div class="userprofile">
+            <?php include 'userDetails.php'; ?>
+            <button type="button" class="bx-but bx-save" name="Edit" onclick="gotoedit()" >Edit</button>
         </div>
-
         
+        <div class="userEdit">
+            <?php include 'editUserDetails.php'; ?>            
+        </div>        
         
-    </body>   
-    
-    
-    
+    </body>      
 </html>
 
 <script>
+    
+$(document).ready(function(){
+    $(".userEdit").hide();
+});
+
+function gotoedit(){
+    $(".userprofile").hide();
+    $(".userEdit").show();   
+}    
  
  function setPetProfile(id){
      //console.log(id);

@@ -4,7 +4,6 @@ include("$root/pet/Controllers/insertPetDetails.php");
 session_start();
 
         $vacName=$_POST['vname'];
-        $vacType=$_POST['vtype'];
         //var_dump($_POST['date1']);
         if($_POST['date1'] == ""){
         $vacDate=$_POST['date2'];
@@ -17,5 +16,13 @@ session_start();
         $petId=$_SESSION['pet_id'];
         $vacStatus=$_POST['isDate'];
         
-        insertPetDetails::insertVaccine($petId, $vacName, $vacType, $vacDate, $vacPeriod, $vacPeriodType, $vacStatus);
+        try{
+          insertPetDetails::insertVaccine($petId, $vacName, $vacDate, $vacPeriod, $vacPeriodType, $vacStatus);          
+          $msg="Vaccination Details saved";
+          echo json_encode(array("code" => "200", "msg" => $msg ));
+
+        } catch (Exception $ex) {
+           $msg="Error";
+            echo json_encode(array("code" => "300", "msg" => $msg )); 
+        }
     

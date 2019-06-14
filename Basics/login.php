@@ -32,7 +32,7 @@
               Basic::logout();
               ?>
     </head>
-    <body style="background-image:url(/pet/images/pets.png);">
+    <body style="background-image:url(/pet/images/login.png);">
     <div class="wrapper fadeInDown">
      <div id="formContent">
     

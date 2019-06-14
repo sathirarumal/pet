@@ -27,7 +27,7 @@
               include("$root/pet/Controllers/Basic.php");
               
               session_start();
-              $_SESSION['usr_id']=1;
+
               ?>
         
 </head>
@@ -95,12 +95,17 @@
             </div><!-- /.navbar-collapse -->
         </div> 
     </nav>
+       
    
-        <div class="insert">
-            <?php include 'petDetails.php'; ?>            
+        <div class="petdetails">
+            <?php include 'petDetails.php'; ?>
+            <button type="button" class="bx-but bx-save" name="Edit" onclick="gotoedit()" >Edit</button>
+        </div>
+               
+        <div class="petedit">
+            <?php include 'Edit_petdetails.php'; ?>            
         </div>
 
-        
         
     </body>   
     
@@ -109,6 +114,15 @@
 </html>
 
 <script>
+    
+$(document).ready(function(){
+    $(".petedit").hide();
+});
+
+function gotoedit(){
+    $(".petdetails").hide();
+    $(".petedit").show();   
+}
  
  function setPetProfile(id){
      //console.log(id);
@@ -130,6 +144,6 @@
         });
         location.reload();
  }
-    
+ 
 </script>
 
