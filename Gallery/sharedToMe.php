@@ -24,11 +24,13 @@
     $(document).ready(function(){
          var fd=$('#fromdate').val();
          var td=$('#todate').val();
+         
+         console.log(fd)
                           
-         if(typeof fd === "undefined" || typeof td === "undefined" ){
-           document.cookie = "fromdate = " + null;
-           document.cookie = "todate = " + null;   
-         }
+         if(typeof fd == "" || typeof td == "" ){
+           document.cookie = "sfromdate = " + null;
+           document.cookie = "stodate = " + null;   
+         } 
     });
    
     $('.datepick').datepicker({
@@ -56,14 +58,14 @@
         
         var fd=$('#fromdate').val();
         var td=$('#todate').val(); 
-        document.cookie = "fromdate = " + fd;
-        document.cookie = "todate = " + td;
+        document.cookie = "sfromdate = " + fd;
+        document.cookie = "stodate = " + td;
         location.reload();
      }
 </script>
 
 <div class="image-wrp">
-  <?php $result= GetGallery::getPhotos();
+  <?php $result= GetGallery::getSharedPhotos();
   while($rows = mysqli_fetch_array($result)){
                 ?> 
      
@@ -73,3 +75,6 @@
     </div>
             <?php } ?>
  </div>
+
+
+

@@ -12,6 +12,7 @@
         <link href="/pet/css/custom/mainmenu.css" rel="stylesheet" />
         <link href="/pet/css/custom/form.css" rel="stylesheet" />
         <link href="/pet/css/custom/accordion.css" rel="stylesheet" />
+        <link href="/pet/css/plugins/airDatepicker/datepicker.css" rel="stylesheet" />
         
         <!--====================================================================
         Java script
@@ -23,11 +24,14 @@
         <script src="/pet/js/custom/custom-plugins-collections.js"></script>
         <script src="/pet/js/custom/common.js"></script>
         <script src="/pet/js/custom/form.js"></script>
+        <script src="/pet/js/plugins/airDatepicker/datepicker.min.js"></script>
+        <script src="/pet/js/plugins/airDatepicker/i18n/datepicker.en.js"></script>
         
         <!-- =====================================================================-->
         <?php $root=$_SERVER['DOCUMENT_ROOT'];
               //include("$root/pet/Models/GetData.php");
               include("$root/pet/Controllers/Basic.php");
+              include("$root/pet/Models/GetGallery.php");
               
               session_start();
               ?>
@@ -98,7 +102,9 @@
         </div> 
     </nav>
    
-
+        <div class="pictures pt-30">
+            <?php include ("$root/pet/Gallery/sharedToMe.php") ?>            
+        </div>
         
         
     </body>   

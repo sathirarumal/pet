@@ -12,7 +12,6 @@
         <link href="/pet/css/custom/mainmenu.css" rel="stylesheet" />
         <link href="/pet/css/custom/form.css" rel="stylesheet" />
         <link href="/pet/css/custom/accordion.css" rel="stylesheet" />
-        <link href="/pet/css/plugins/airDatepicker/datepicker.css" rel="stylesheet" />
         
         <!--====================================================================
         Java script
@@ -24,8 +23,6 @@
         <script src="/pet/js/custom/custom-plugins-collections.js"></script>
         <script src="/pet/js/custom/common.js"></script>
         <script src="/pet/js/custom/form.js"></script>
-        <script src="/pet/js/plugins/airDatepicker/datepicker.min.js"></script>
-        <script src="/pet/js/plugins/airDatepicker/i18n/datepicker.en.js"></script>
         
         <!-- =====================================================================-->
         <?php $root=$_SERVER['DOCUMENT_ROOT'];
@@ -37,7 +34,7 @@
         
     </head>
     <body>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header navbar-left">
                 <img src="/pet/images/logo.png" style="width:50px;height:50px">
@@ -100,26 +97,47 @@
             </div><!-- /.navbar-collapse -->
         </div> 
     </nav>
-       
-        <div class="myfloat">
-            <?php include 'upload.php'; ?>            
+
+
+<?php
+
+$imgId=$_COOKIE['picId'];
+$viewPic= GetGallery::getUserImages($imgId);
+?>
+ <div class="h3 blue" style="padding-top:180px;padding-left:50px;color:blue"><?php echo $viewPic['title'];?></div>       
+ <div class="row" style="padding-left:50px;">    
+    <div class="col-md-4 image-wrp">
+        <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $viewPic['pic'] ).'" class="thumbnail img-responsive">'; ?>
+        
+        <?php echo $viewPic['date'];?>
+    </div>
+     
+    <div class="col-md-4">
+        <h5 class="f-light pb-10">Please enter the email-address of the user that you want to share: </h5>
+        
+        <div class="input-layout col-md-offset-2">           
+            <input type="email" class="" id="email" placeholder="Email">
         </div>
         
-        <div class="optionPic">
-            <?php //include 'imageOptions.php'; ?>            
-        </div>
+        <div class="alert-warning" id="error"></div>
         
-        <div class="insert">
-            <?php include 'allImages.php'; ?>            
-        </div>
+        <div class="alert-success" id="success"></div>
         
-        
-        
-        
-    </body>   
+        <button type="button" class="bx-but bx-save" name="save" onclick="sharePic(<?php echo $imgId ?>);" >SHARE</button>   
     
-    
-    
+    </div>
+            
+ </div>
+ <div class="row">
+            
+    <div class="col-md-4">
+        <button type="button" class="bx-but bx-delete" name="save" onclick="deletePic(<?php echo $imgId ?>);" >DELETE</button>   
+    </div> 
+ 
+ </div>       
+        
+        
+</body>      
 </html>
 
 <script>
@@ -144,5 +162,57 @@
         });
         location.reload();
  }
+ 
+  function deletePic(id){
+     //console.log(id);
+     if (confirm("Are you sure?")) {
+        var extraData = "&picId=" + id;
+        jQuery.ajax({
+        type: "POST",
+        url: '/pet/Controllers/actionDeletePic.php',
+        dataType: 'json',
+        data: extraData,
+
+        success: function (obj, textstatus) {
+                  if( !('error' in obj) ) {
+                      yourVariable = obj.result;
+                  }
+                  else {
+                      console.log(obj.error);
+                  }
+            }
+        });
+       window.location.href ='Gallery.php';
+    }     
+ }
+ 
+   function sharePic(id){
+     var email=$('#email').val();
+     if (confirm("Do you want to share this Image with "+email)) {
+        var extraData = "&picId=" + id + "&email=" +email;
+        jQuery.ajax({
+        type: "POST",
+        url: '/pet/Controllers/actionSharePic.php',
+        dataType: 'json',
+        data: extraData,
+
+        success: function (obj) {
+                  if( obj.code == 300 ) {
+                      $('#error').html("Please enter valid Email address").fadeOut(5000);
+                  }
+                  else if( obj.code == 200 ) {
+                      $('#success').html("Successfully shared with " + email ).fadeOut(5000);
+                  }
+                  else{
+                      $('#error').html("Some thing wrong please contact the admin center").fadeOut(5000);
+                  }
+            }
+        });
+
+    }
+     
+ }
+ 
+ 
     
-</script>
+</script>        

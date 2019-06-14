@@ -1,52 +1,51 @@
-<?php
 
-$dbs = Connection::connect(); 
-$userId = $_SESSION['usr_id'];
-if(isset($_POST['uploadbtn'])){
-$imageFile = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-$insert_image="INSERT INTO user_gallery (pic,ref_usrId) VALUES('$imageFile','$userId')";
-
-$dbs->query($insert_image);
-}
-?>
-
-<div class="container main-wrapper" style="max-width:21%; max-height:30%;margin-left: 80%">
-        <div class="contert-wrapper pb-15">
-            <div class="cell pb-20">
-                <h1 class="title">UPLOAD</h1>
-            </div>
-            <form method="POST" action="" enctype="multipart/form-data" id="upload">
-                    <input type="file" name="image" id="image">
+<div class="panel panel-default pt-30 ">
+  <div class="panel-heading">
+            <form method="POST" action="pictureUpload.php" enctype="multipart/form-data" id="upload">                   
                     <div class="row">
-                        <div class="col-md-12">
-                            <button type="submit" class="bx-but bx-save" name="uploadbtn" >UPLOAD</button>
+                        <div class="col-md-4">
+                            <input type="file" name="image" id="image">
+                        </div>
+                        <div class="input-layout col-md-4">           
+                            <input type="text" class="" id="title" placeholder="Enter Title" name="title">
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="bx-but bx-save" name="uploadbtn" onclick="getmsg();" >UPLOAD</button>
                         </div>
                     </div>
             </form>
-        </div>
-        </div>
+   </div>
+</div>
 
 
-<!--<script>
-                
-function uploadImg()
-     {
-        //console.log("sdsdsd");
+<script>
+       
+   function getmsg(){
+       var extraData;
         jQuery.ajax({
         type: "POST",
-        url: '/pet/Controllers/actionUpload.php',
+        url: 'pictureUpload.php',
         dataType: 'json',
-        data: $('#upload'),
+        data: extraData,
 
-        success: function (obj,Success) {
-                  if( !('error' in obj) ) {
-                      Success = obj.result;
+        success: function (obj) {
+                  if( obj.code == 300 ) {
+                      $('#error').html("Please enter valid Email address").fadeOut(5000);
                   }
-                  else {
-                      console.log(obj.error);
+                  else if( obj.code == 200 ) {
+                      $('#success').html("Successfully shared with " + email ).fadeOut(5000);
+                  }
+                  else{
+                      $('#error').html("Some thing wrong please contact the admin center").fadeOut(5000);
                   }
             }
         });
-     }
-        
-</script>  -->
+
+    }
+    return false;
+     
+ }    
+    
+    
+    
+</script>    
