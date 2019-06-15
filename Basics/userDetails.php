@@ -1,5 +1,4 @@
-<html> 
-<body>
+
 <div class="container main-wrapper">    
     <div class="bread-crumb-wrp with-mb">
         <a>Your</a>
@@ -55,16 +54,42 @@
 
 							
 						</div>
-                                                    <div class="bulkupload" onclick=""> 
+                                                    <div  onclick="showUploader();"> 
                                                         <h5 style="color:blue;">Change profile picture</h5>
                                                     </div>
                                     
                                         </div>
 
                                    </div>
+            
+            <div class="panel panel-default" id="userEdit">
+                <div class="panel-heading">
+            <form method="POST" action="propicUploadUser.php" enctype="multipart/form-data" id="upload">                   
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="file" name="image" id="image">
+                        </div>
+
+                        <div class="col-md-4">
+                            <button type="submit" class="bx-but bx-save" name="uploadbtn" onclick="getmsg();" >UPLOAD</button>
+                        </div>
+                    </div>
+            </form>
+                </div>
+            </div>
                         </div>
             </div>
-        </div>
-    </body>
-</html>
+        </div>   
+  
+<script>
     
+$(document).ready(function(){
+    $("#userEdit").hide();
+});
+
+function showUploader(){
+    $("#userEdit").show();   
+}    
+ 
+    
+</script>

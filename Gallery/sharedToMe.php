@@ -63,14 +63,18 @@
         location.reload();
      }
 </script>
-
-<div class="image-wrp">
+<h3 style="color:blue ">PHOTO INBOX</h3>
+<div class="img-wrp">
   <?php $result= GetGallery::getSharedPhotos();
   while($rows = mysqli_fetch_array($result)){
                 ?> 
      
     <div class="col-md-4" style="padding-top:5px" ondblclick="openImage(<?php echo $rows['picId']?>);">
-      <?php echo $rows['title'];?>   
+      <?php echo $rows['title'];?>
+      <?php echo " sent by "?>  
+      <b><?php echo GetGallery::getUserByUserID($rows['ref_owner_Id']);?></b>
+      <?php echo " at "?>
+      <?php echo $rows['shared_Date'];?>  
       <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $rows['pic'] ).'" class="thumbnail img-responsive">'; ?>
     </div>
             <?php } ?>

@@ -66,16 +66,28 @@ class GetGallery {
       
       if($toDate == "" || $fromDate == ""){      
       
-          $sql = "SELECT * FROM user_gallery WHERE ref_usrId = '$userId'";
+          $sql = "SELECT * FROM user_gallery u,share_gallery s WHERE s.ref_pic_Id=u.picId AND s.ref_sharedUser_Id = '$userId'";
       } else {
       
-          $sql = "SELECT * FROM user_gallery WHERE date >= '$fromDate' AND date <= '$toDate' AND ref_usrId = '$userId'";    
+          $sql = "SELECT * FROM user_gallery u,share_gallery s WHERE s.ref_pic_Id=u.picId AND shared_Date >= '$fromDate' AND shared_Date <= '$toDate' AND ref_sharedUser_Id = '$userId'";    
       }
       
       $result = mysqli_query($dbs,$sql);
       
       
       return $result;
+     }
+     
+     public static function getUserByUserID($id){
+      $dbs = Connection::connect();  
+      $sql = "SELECT * FROM user_details WHERE usr_id = '$id'";
+      $result = mysqli_query($dbs,$sql);
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+      
+      $name=$row['usr_fname']." ".$row['usr_lname'];
+      
+      return $name;
+      
      }
     
 }

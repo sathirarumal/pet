@@ -25,6 +25,7 @@
         <?php $root=$_SERVER['DOCUMENT_ROOT'];
               //include("$root/pet/Models/GetData.php");
               include("$root/pet/Controllers/Basic.php");
+              include("$root/pet/Models/selectionBox.php");
               
               session_start();
 
@@ -97,12 +98,12 @@
     </nav>
        
    
-        <div class="petdetails">
+        <div class="petdetailss" id="petdetailss">
             <?php include 'petDetails.php'; ?>
             <button type="button" class="bx-but bx-save" name="Edit" onclick="gotoedit()" >Edit</button>
         </div>
                
-        <div class="petedit">
+        <div class="peteditss" id="peteditss">
             <?php include 'Edit_petdetails.php'; ?>            
         </div>
 
@@ -115,13 +116,15 @@
 
 <script>
     
-$(document).ready(function(){
-    $(".petedit").hide();
-});
+    $(document).ready(function(){
+        
+    $("#peteditss").hide();
+    
+    });
 
 function gotoedit(){
-    $(".petdetails").hide();
-    $(".petedit").show();   
+    $("#petdetailss").hide();
+    $("#peteditss").show();   
 }
  
  function setPetProfile(id){

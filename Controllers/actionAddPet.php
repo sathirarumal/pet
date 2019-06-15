@@ -13,11 +13,8 @@ $pet_gender=$_POST['gender'];
 $user_id= $_SESSION['usr_id'];
 $default=1;
 
-try {
-   
-   Basic::insertPet($user_id,$pet_name, $pet_type, $pet_breed, $pet_birthday, $pet_gender,$default);
-   
-   $msg="Pet Added Succesfully";
+try {   
+   Basic::insertPet($user_id,$pet_name, $pet_type, $pet_breed, $pet_birthday, $pet_gender,$default);   
    echo json_encode(array("code" => "200", "msg" => $msg ));
    
 } catch (Exception $ex) {

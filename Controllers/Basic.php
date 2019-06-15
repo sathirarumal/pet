@@ -84,6 +84,7 @@ class Basic{
             $sql= "INSERT INTO pet_Profile (usr_id, pet_name, pet_type, pet_breed, pet_birthday, pet_gender, pet_default) values ('$user_id', '$pet_name', '$pet_type', '$breed', '$birthday', '$gender', '$default')";
             $dbs->query($sql);
             $usr_id = mysqli_insert_id($dbs);
+            header('Location:/pet/Basics/PetProfile.php');
         }
         catch (Exception $ex){
             echo $ex;

@@ -28,6 +28,7 @@
         <?php $root=$_SERVER['DOCUMENT_ROOT'];
               //include("$root/pet/Models/GetData.php");
               include("$root/pet/Controllers/Basic.php");
+              include("$root/pet/Models/selectionBox.php");
               
               session_start();
               //$_SESSION['usr_id']=1;
