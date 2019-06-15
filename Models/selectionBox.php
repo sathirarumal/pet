@@ -1,6 +1,6 @@
 <?php
 $root=$_SERVER['DOCUMENT_ROOT'];
-include("$root/pet/Models/Connection.php");
+//include("$root/pet/Models/Connection.php");
 
 /**
  * Description of selectionBox
@@ -14,18 +14,16 @@ class selectionBox {
         $dbs = Connection::connect();
         $sql = "select * from set_breed"; 
         $result = mysqli_query($dbs,$sql);
-        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
         
-        return $row;
+        return $result;
     }
     
     public static function selectType(){
         $dbs = Connection::connect();
         $sql = "select * from set_type"; 
         $result = mysqli_query($dbs,$sql);
-        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
         
-        return $row;
+        return $result;
     }
     
     public static function selectPeriod(){
@@ -43,6 +41,13 @@ class selectionBox {
         $result = mysqli_query($dbs,$sql);
         $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
         
-        return $row;
+        $option = '';
+        while($row = mysql_fetch_assoc($result))
+        {  
+        $option .= '<option value = "'.$row['country_id'].'">'.$row['country'].'</option>';
+        }
+        
+        return $option;
+        
     }
 }

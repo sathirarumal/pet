@@ -49,7 +49,7 @@
                                     <div class="row form-row"> 
                                         <div class="col-md-4 input-layout">
                                             <h4 class="title">Breed</h4>
-                                            <input type="text" class="" name="breed" value="<?php echo Basic::getBreedByID($row['pet_breed']);?>">
+                                            <input type="text" class="" name="breed" value="<?php echo selectionBox::selectBreed();?>">
                                         </div>
 
                              

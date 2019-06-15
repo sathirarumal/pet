@@ -133,11 +133,7 @@
 
 <script>
     
-    $("#reg").validate({
-    submitHandler: function(form) {
-    form.submit();
-    }
-    });
+    $("#reg").validate();
     
     $('.datepick').datepicker({
         language: 'en'

@@ -22,22 +22,46 @@
                                         
                                         <div class="col-md-4 input-layout">
                                             <h4 class="title">Type</h4>
-                                            <input type="text" class="" name="type">
+                                            <select name="type">
+                                                <option value="0">Please Select</option>
+                                                <?php
+                                                $data=selectionBox::selectType();
+                                                while($row = mysqli_fetch_array($data,MYSQLI_ASSOC))
+                                                { 
+                                                ?>    
+                                                
+                                                <option value = "<?php echo($row['pet_type_name'])?>">
+                                                <?php echo($row['pet_type_name']) ?>
+                                                </option>
+                                                <?php
+                                                }                                               
+                                                ?>
+                                            </select>
                                         </div>
-                                    </div>
-     
-                           
-                           
-                                    <div class="row form-row">
-                                        
-                                        <div class="col-md-4 input-layout">                                            
+                                    </div>                           
+                                    <div class="row form-row">                                        
+                                        <div class="col-md-4">                                            
                                             <h4 class="title">Breed</h4>
-                                            <input type="text" class="datepick" data-language="en" name="breed">
+                                            <select name="breed">
+                                                <option value="0">Please Select</option>
+                                                <?php
+                                                $data=selectionBox::selectBreed();
+                                                while($row = mysqli_fetch_array($data,MYSQLI_ASSOC))
+                                                { 
+                                                ?>    
+                                                
+                                                <option value = "<?php echo($row['pet_breed_name'])?>" >
+                                                <?php echo($row['pet_breed_name']) ?>
+                                                </option>
+                                                <?php
+                                                }                                               
+                                                ?>
+                                            </select>
                                         </div>
                                         
                                         <div class="col-md-4 input-layout">
                                             <h4 class="title">Date of Birth</h4>
-                                            <input type="text" class="" name="bday">
+                                            <input type="text" class="datepick" lang="en" name="bday">
                                         </div>
                                     </div>
                            
@@ -69,6 +93,10 @@
 
 
 <script>
+    
+    $('.datepick').datepicker({
+        language: 'en'
+    });
         
      function savePet()
      {
@@ -79,15 +107,14 @@
         dataType: 'json',
         data: $('#petdetails').serialize(),
 
-        success: function (obj, textstatus) {
-                  if( !('error' in obj) ) {
-                      yourVariable = obj.result;
-                  }
-                  else {
-                      console.log(obj.error);
+        success: function (obj) {
+                    if(obj.code==200){
+                        //window.location.replace('PetProfile.php')
                   }
             }
         });
+        
+        window.location.replace('PetProfile.php')
      }
         
 </script>   

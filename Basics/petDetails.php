@@ -27,7 +27,7 @@
 						</div>
 
 						<div class="col-xs-12 col-sm-9">
-							<h2 class="details bg-blue">
+							<h2 class="details bg-blue-gradient">
                                                             <span class="middle"><?php echo $row['pet_name']?></span>
 							</h2>
 
@@ -63,10 +63,33 @@
 
 							
 						</div>
+                                        <div class="row">
+                                        <div class="col-md-4"  onclick="showUploader();"> 
+                                                        <h5 style="color:blue;">Change profile picture</h5>
                                         </div>
+                                        
+                                        <span class="glyphicon glyphicon-edit col-md-4"  > 
+                                            <a href="insertPet_Main.php" style="color:brown;">INSERT NEW PROFILE</a>
+                                        </span>
+                                    </div>
+                                    </div>
 
 
                                    </div>
+            <div class="panel panel-default" id="userEdit">
+                <div class="panel-heading">
+                    <form method="POST" action="propicUploadPet.php" enctype="multipart/form-data" id="upload">                   
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="file" name="image" id="image">
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="bx-but bx-save" name="uploadbtn" onclick="getmsg();" >UPLOAD</button>
+                        </div>
+                    </div>
+            </form>
+                </div>
+            </div>            
                         </div>
             </div>
         </div>
@@ -76,25 +99,13 @@
 
   <script>
         
-     function savePet()
-     {
-         //console.log("sdsdsd");
-        jQuery.ajax({
-        type: "POST",
-        url: '/pet/Controllers/actionAddPet.php',
-        dataType: 'json',
-        data: $('#petdetails').serialize(),
+$(document).ready(function(){
+    $("#userEdit").hide();
+});
 
-        success: function (obj, textstatus) {
-                  if( !('error' in obj) ) {
-                      yourVariable = obj.result;
-                  }
-                  else {
-                      console.log(obj.error);
-                  }
-            }
-        });
-     }
-        
+function showUploader(){
+    $("#userEdit").show();   
+}    
+ 
 </script>   
   
