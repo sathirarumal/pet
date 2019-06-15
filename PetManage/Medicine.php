@@ -9,7 +9,7 @@
 <div class="container main-wrapper" style="max-width:45%; max-height:50%;">
         <div class="contert-wrapper pb-15">
             <div class="cell pb-20">
-                <h1 class="title">SCHEDULE MED</h1>
+                <h1 class="title">MEDICINE SCHEDULE </h1>
             </div>
             <form action="" method="post" id="meds">
                   <div class="row">
@@ -18,12 +18,12 @@
                                     <div class="row form-row">    
                                         <div class="col-md-4 input-layout">
                                             <h4 class="title">MEDICINE</h4>
-                                            <input type="text" class="lettersonly" name="mname">
+                                            <input type="text" class="lettersonly" name="mname" id="mname" >
                                         </div>
                                         
                                         <div class="col-md-4 input-layout">
                                             <h4 class="title">MEDICINE TYPE</h4>
-                                            <input type="text" class="" name="mtype">
+                                            <input type="text" class="" name="mtype" id="mtype" >
                                         </div>
                                     </div>
                            
@@ -39,7 +39,7 @@
                                     <div class="row form-row" id="forDate">     
                                         <div class="col-md-4 input-layout">                                            
                                             <h4 class="title">Date</h4>
-                                            <input type="text" class="datepick" data-language="en" name="date">
+                                            <input type="text" class="datepick" data-language="en" name="date1" id="date1" >
                                         </div>
                                     </div>
                            
@@ -48,17 +48,19 @@
                                         
                                         <div class="col-md-4 input-layout">                                            
                                             <h4 class="title">Initial Date</h4>
-                                            <input type="text" class="datepick" data-language="en" name="date">
+                                            <input type="text" class="datepick" data-language="en" name="date2" id="date2" >
                                         </div>
                                         
                                         <div class="col-md-4 input-layout">
                                             <h4 class="title">Period Type</h4>
-                                            <input type="text" class="" name="fptype">
+                                            <input type="text" class="" name="ptype" id="ptype" placeholder="Enter weeks">
+                                            
+                                           
                                         </div>
                                         
                                         <div class="col-md-4 input-layout">
                                             <h4 class="title">Period Count</h4>
-                                            <input type="text" class="" name="fperiodcount">
+                                            <input type="text" class="" name="periodcount" id="periodcount" placeholder="Enter  months">
                                         </div>                                       
                                        
                                     </div>
@@ -76,7 +78,69 @@
                 </div>
             </div>
 
-
+<script> 
+function SaveMed()                                    
+{ 
+    var Medicine = document.forms["meds"]["mname"];               
+    var Medicinetype = document.forms["meds"]["mtype"];    
+    var Date = document.forms["meds"]["date1"];  
+    var InitialDate =  document.forms["meds"]["date2"];  
+    var PeriodType = document.forms["meds"]["ptype"];  
+    var PeriodCount = document.forms["meds"]["periodcount"];  
+   
+    if (mname.value == "")                                  
+    { 
+        window.alert("Please enter Medicine name."); 
+        name.focus(); 
+        return false; 
+    } 
+   
+    if (mtype.value == "")                               
+    { 
+        window.alert("Please enter MedicineType."); 
+        name.focus(); 
+        return false; 
+    } 
+       
+    if (date.value == "")                                   
+    { 
+        window.alert("Please select date."); 
+        email.focus(); 
+        return false; 
+    } 
+   
+    if (date2.value == "")                                   
+    { 
+        window.alert("Please select Initialdate."); 
+        email.focus(); 
+        return false; 
+    } 
+   
+    
+   
+    if (ptype.value == "" )                           
+    { 
+        int number=0;
+        String val=0;
+        if(number.length<1 || val.length<10 )
+        {
+        window.alert("Please enter period ."); 
+        phone.focus(); 
+        return false; 
+    } 
+   
+     if (periodcount.value == "" )                           
+    { 
+        int number1=0;
+        string val2=0;
+        if(number1.length<1 || val2.length<10 )
+        {
+        window.alert("Please enter period ."); 
+        phone.focus(); 
+        return false; 
+    } 
+    return true; 
+}</script> 
 
 <script>
         

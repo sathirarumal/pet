@@ -4,18 +4,16 @@ $root=$_SERVER['DOCUMENT_ROOT'];
 include("$root/pet/Controllers/insertPetDetails.php");
 session_start();
 
-        $vacName=$_POST['vname'];
-        $vacType=$_POST['vtype'];
+        $name=$_POST['mname'];
+        $mtype=$_POST['mtype'];
         //var_dump($_POST['date1']);
-        if($_POST['date1'] == ""){
-        $vacDate=$_POST['date2'];
+        if($_POST['date1'] != ""){
+        $mDate=$_POST['date1'];
         }else{
-        $vacDate=$_POST['date1']; 
+        $mfDate=$_POST['date2']; 
+        $status=$_POST['status'];
+        $Periodcount=$_POST['periodcount'];
         }
+        $pmid=$_SESSION['pet_id'];
         
-        $vacPeriod=$_POST['vperiod'];
-        $vacPeriodType=$_POST['vptype'];
-        $petId=$_SESSION['pet_id'];
-        $vacStatus=$_POST['isDate'];
-        
-        insertPetDetails::insertVaccine($petId, $vacName, $vacType, $vacDate, $vacPeriod, $vacPeriodType, $vacStatus);
+        insertPetDetails::insertMedicine($pmid,$name,$mDate,$mfDate,$Periodcount,$status,$ptype);

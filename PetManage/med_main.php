@@ -103,7 +103,9 @@
             <?php include 'Medicine.php'; ?>            
         </div>
 
-        
+        <div class="view">
+            <?php include 'viewMedicine.php'; ?>            
+        </div>
         
     </body>   
     

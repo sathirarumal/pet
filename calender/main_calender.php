@@ -1,4 +1,3 @@
-
 <html>
     <head>
         <!--====================================================================
@@ -12,6 +11,9 @@
         <link href="/pet/css/custom/mainmenu.css" rel="stylesheet" />
         <link href="/pet/css/custom/form.css" rel="stylesheet" />
         <link href="/pet/css/custom/accordion.css" rel="stylesheet" />
+        <link href="/pet/css/calendar/newcalender.css" rel="stylesheet"/>
+        <link href="/pet/css/calendar/holiday-cnd.css" rel="stylesheet"/>
+        
         
         <!--====================================================================
         Java script
@@ -23,7 +25,6 @@
         <script src="/pet/js/custom/custom-plugins-collections.js"></script>
         <script src="/pet/js/custom/common.js"></script>
         <script src="/pet/js/custom/form.js"></script>
-        <script src="/pet/js/jquery.validate.js"></script>
         
         <!-- =====================================================================-->
         <?php $root=$_SERVER['DOCUMENT_ROOT'];
@@ -46,7 +47,9 @@
             </div>
            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav pt-20">
+                    
                     <li><a href="/pet/MainDashboard/main.php" >HOME</a></li>
+                    
                     <li><a href="/pet/Gallery/Gallery.php">GALLERY</a></li>
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">MANAGE PETS<b class="caret"></b></a>
@@ -101,24 +104,16 @@
     </nav>
    
         <div class="insert">
-            <?php include 'Daily_Activities.php'; ?>            
+            <?php include 'main_calender.php'; ?>            
         </div>
 
-        <div class="vieww">
-            <?php include 'viewActivities.php'; ?>            
-        </div>
+        
         
     </body>   
     
     
-    
-</html>
-
 <script>
- $("#reg").validate({
-     submitHandler:function(form){
-         form.submit();
-     }});
+ 
  function setPetProfile(id){
      //console.log(id);
      var extraData = "&petId=" + id;
@@ -141,3 +136,8 @@
  }
     
 </script>
+    
+    
+</html>
+
+
