@@ -11,7 +11,7 @@
             <div class="cell pb-20">
                 <h1 class="title">SCHEDULE FOODS</h1>
             </div>
-            <form action="" method="post" id="vaccine">
+            <form action="" method="post" id="food">
                   <div class="row">
                        <div class="col-md-12">
                            
@@ -39,7 +39,7 @@
                                     <div class="row form-row" id="forDate">     
                                         <div class="col-md-4 input-layout">                                            
                                             <h4 class="title">Date</h4>
-                                            <input type="text" class="datepick" data-language="en" name="date">
+                                            <input type="text" class="datepick" data-language="en" name="fdate">
                                         </div>
                                     </div>
                            
@@ -48,7 +48,7 @@
                                         
                                         <div class="col-md-4 input-layout">                                            
                                             <h4 class="title">Initial Date</h4>
-                                            <input type="text" class="datepick" data-language="en" name="date">
+                                            <input type="text" class="datepick" data-language="en" name="ffdate">
                                         </div>
                                         
                                         <div class="col-md-4 input-layout">
@@ -67,7 +67,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button type="submit" class="bx-but bx-save" name="save" onclick="saveFoods();" >Save</button>
+                                    <button type="button" class="bx-but bx-save" name="save" onclick="saveFoods();" >Save</button>
                                 </div>
                             </div>
 
@@ -107,9 +107,9 @@
          //console.log("sdsdsd");
         jQuery.ajax({
         type: "POST",
-        url: '/pet/Controllers/vaccine.php',
+        url: '/pet/Controllers/actionAddFood.php',
         dataType: 'json',
-        data: $('#vaccine').serialize(),
+        data: $('#food').serialize(),
 
         success: function (obj, textstatus) {
                   if( !('error' in obj) ) {
