@@ -33,11 +33,11 @@
 
                                                                 <div class="row pb-10">
                                                                     <div class="col-md-4 input-layout">
-                                                                        <h4 class="details"> <b>TYPE :</b> <?php echo Basic::getTypeByID($row['pet_type']);?></h4>
+                                                                        <h4 class="details"> <b>TYPE :</b> <?php echo $row['pet_type'];?></h4>
                                                                     </div>
                                                                     
                                                                     <div class="col-md-4 input-layout">
-                                                                        <h4 class="details"> <b>BREED :</b>  <?php echo Basic::getBreedByID($row['pet_breed']);?>  </h4>
+                                                                        <h4 class="details"> <b>BREED :</b>  <?php echo $row['pet_breed'];?>  </h4>
                                                                     </div>
                                                                     
                                                                 </div>
@@ -97,15 +97,15 @@
     </body>
 </html>
 
-  <script>
-        
+<script>
+    
 $(document).ready(function(){
     $("#userEdit").hide();
 });
 
 function showUploader(){
     $("#userEdit").show();   
-}    
- 
+}         
+    
 </script>   
   

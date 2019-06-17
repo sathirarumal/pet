@@ -2,7 +2,7 @@
 <link href="/pet/css/plugins/lcSwitch/lc_switch.css" rel="stylesheet" />
 <script src="/pet/js/plugins/airDatepicker/datepicker.min.js"></script>
 <script src="/pet/js/plugins/airDatepicker/i18n/datepicker.en.js"></script>
-<script src="/pet/js/plugins/validate/jquery.validate11.js"></script>
+<script src="/pet/js/jquery.validate.js"></script>
 <script src="/pet/js/plugins/lcSwitch/lc_switch.min.js"></script>
 
    
@@ -33,31 +33,31 @@
                                     <div class="row form-row" id="forDate">     
                                         <div class="col-md-4 input-layout">                                            
                                             <h4 class="title" shorttime="true" >Hours</h4>
-                                                <input type="text" name="hours" id="hours">
+                                                <input type="text" name="hours" id="hours" required>
                                         </div>
                               </div>
                                       <div class="row form-row" id="forPeriod">
                                          <div class="col-md-4 input-layout">                                            
                                             <h4 class="title">StartTime</h4>
-                                            <input type="text" class="" id="timer" name="starttime">
+                                            <input type="text" class="" id="timer" name="starttime" required>
                                         </div>
                                         
                                         <div class="col-md-4 input-layout">
                                             <h4 class="title">EndTime</h4>
-                                            <input type="text" class="" id="timer" name="endtime">
+                                            <input type="text" class="" id="timer" name="endtime" required>
                                         </div>
                                       
                               </div> 
                                    <div class="row form-row"> 
                                         <div class="col-md-4 input-layout">
                                             <h4 class="title">Events</h4>
-                                            <input type="text" class=""name="event" id="event">
+                                            <input type="text" class=""name="event" id="event" required>
                                         </div>
                                     </div> 
                                 <div class="row form-row">
                                    <div class="col-md-4 input-layout">
                                             <h4 class="title">Discription</h4>
-                                            <input type="text" name="dis" class="" id="dis">
+                                            <input type="text" name="dis" class="" id="dis" required>
                                         </div>
                                 </div>
                     </div>
@@ -75,13 +75,11 @@
          </form>
                 </div>
             </div>
-
-             
-     
-              
-        
+  
             
     <script>
+    
+    $("#meds").validate();
         
     $('.datepick').datepicker({
         language: 'en'

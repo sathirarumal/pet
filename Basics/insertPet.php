@@ -114,7 +114,7 @@
             }
         });
         
-        window.location.replace('PetProfile.php')
+        window.location.replace('PetProfile.php');
      }
         
 </script>   

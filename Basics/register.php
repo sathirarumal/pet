@@ -94,7 +94,7 @@
                                     <div class="row form-row">     
                                         <div class="col-md-4 input-layout col-md-offset-2">
                                             <h4 class="title">Telephone Number</h4>
-                                            <input type="text" class="" name="pnum" required>
+                                            <input type="text" min="10" name="pnum" required>
                                         </div>   
                                     </div>
                                    
@@ -102,13 +102,13 @@
                                         <hr size="10" noshade>
                                         <div class="col-md-4 input-layout col-md-offset-2">
                                             <h4 class="title">USER NAME</h4>
-                                            <input type="text" id="cname" minlength="8" name="username" required>
+                                            <input type="text" id="cname" minlength="5" name="username" required>
                                         </div>
                                     </div>
                                     <div class="row form-row">                                       
                                         <div class="col-md-4 input-layout col-md-offset-2">
                                             <h4 class="title">PASSWORD</h4>
-                                            <input type="password" class="" name="password" required>
+                                            <input type="password" id="cname" minlength="5" name="password" required>
                                         </div>
                                     </div>
                               </div>   
@@ -133,8 +133,7 @@
 
 <script>
     
-    $("#reg").validate();
-    
+    $("#reg").validate();   
     $('.datepick').datepicker({
         language: 'en'
     });
@@ -154,6 +153,7 @@
            }
            else{
                $('#success').html("Registration Successful").fadeout(5000);
+               window.location.replace('login.php');
            }
             }
         });

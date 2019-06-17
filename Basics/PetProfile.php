@@ -1,15 +1,14 @@
 
 <html>
     <head>
-        <!--====================================================================
-        Style sheet
-       =====================================================================-->
         <link href="/pet/fonts/font.css" rel="stylesheet" />
         <link href="/pet/css/bootstrap.css" rel="stylesheet" />
         <link href="/pet/css/custom/normalize.css" rel="stylesheet" />
         <link href="/pet/css/custom/button.css" rel="stylesheet" />
         <link href="/pet/css/custom/common.css" rel="stylesheet" />
         <link href="/pet/css/custom/mainmenu.css" rel="stylesheet" />
+        <link href="/pet/css/custom/form.css" rel="stylesheet" />
+        <link href="/pet/css/custom/accordion.css" rel="stylesheet" />
         
         <!--====================================================================
         Java script
@@ -20,6 +19,7 @@
         <script src="/pet/js/bootstrap.min.js"></script>
         <script src="/pet/js/custom/custom-plugins-collections.js"></script>
         <script src="/pet/js/custom/common.js"></script>
+        <script src="/pet/js/custom/form.js"></script>
         
         <!-- =====================================================================-->
         <?php $root=$_SERVER['DOCUMENT_ROOT'];
@@ -31,7 +31,7 @@
 
               ?>
         
-</head>
+    </head>
     <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
@@ -96,17 +96,17 @@
             </div><!-- /.navbar-collapse -->
         </div> 
     </nav>
-       
-   
-        <div class="petdetailss" id="petdetailss">
+               
+        
+        <div class="pet2" id="petdetailss">
             <?php include 'petDetails.php'; ?>
             <button type="button" class="bx-but bx-save" name="Edit" onclick="gotoedit()" >Edit</button>
         </div>
-               
-        <div class="peteditss" id="peteditss">
+        
+        <div class="pet1" id="peteditss">
             <?php include 'Edit_petdetails.php'; ?>            
         </div>
-
+                       
         
     </body>   
     
@@ -115,20 +115,19 @@
 </html>
 
 <script>
-    
-    $(document).ready(function(){
-        
-    $("#peteditss").hide();
-    
-    });
-
-function gotoedit(){
-    $("#petdetailss").hide();
-    $("#peteditss").show();   
-}
  
+  $(document).ready(function(){      
+        $(".pet1").hide();
+   });
+
+   function gotoedit(){
+        console.log("ddsd");
+        $(".pet2").hide();
+        $(".pet1").show();   
+    }
+    
  function setPetProfile(id){
-     //console.log(id);
+     console.log(id);
      var extraData = "&petId=" + id;
      jQuery.ajax({
         type: "POST",
