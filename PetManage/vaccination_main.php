@@ -103,6 +103,9 @@
             <?php include 'vaccination_Edit.php'; ?>            
         </div>
         
+        <div class="insert">
+            <?php include 'viewActivities.php'; ?>            
+        </div>
         
     </body>   
     

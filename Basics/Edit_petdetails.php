@@ -1,11 +1,4 @@
 
-        <link href="/pet/css/custom/form.css" rel="stylesheet" />
-        <link href="/pet/css/custom/accordion.css" rel="stylesheet" />
-        <link href="/pet/css/plugins/airDatepicker/datepicker.css" rel="stylesheet" />
-        <script src="/pet/js/custom/form.js"></script>
-        <script src="/pet/js/plugins/airDatepicker/datepicker.min.js"></script>
-        <script src="/pet/js/plugins/airDatepicker/i18n/datepicker.en.js"></script>
-   
 
          
     <div class="container main-wrapper">    
@@ -23,7 +16,7 @@
                                            
                                         <div class="col-md-4 input-layout">                                            
                                             <h4 class="title">Pet Type</h4>
-                                            <input type="text" class="" name="type" value="<?php echo Basic::getTypeByID($row['pet_type']);?>">
+                                            <input type="text" class="" name="type" value="<?php echo $row['pet_type'];?>">
                                         </div>
                                     </div>
                            
